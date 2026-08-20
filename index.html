@@ -3,6 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Что странице разрешено грузить и выполнять. GitHub Pages не даёт
+     задавать заголовки ответа, поэтому политика объявлена здесь.
+     Скрипты — только свои, встроенный разрешён по хэшу: подсунуть
+     на страницу чужой код нельзя даже при подмене разметки.
+     Хэш посчитан от тела <script> ниже — правите его, пересчитайте.
+
+     frame-ancestors здесь нет намеренно: из <meta> эта директива
+     браузерами игнорируется, а в консоль пишет ошибку. Запретить
+     встраивание страницы в чужой iframe на GitHub Pages нельзя —
+     заголовки ответа задаёт площадка. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'none';
+  script-src 'self' 'sha256-J1+9vEbcEdizr4R0Ns23fc/euyolDuwjIKZfjnHpBHA=';
+  style-src 'self' https://fonts.googleapis.com;
+  font-src https://fonts.gstatic.com;
+  img-src 'self' data: https://*.wbbasket.ru https://*.ozone.ru;
+  connect-src 'self';
+  base-uri 'none';
+  form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>PixelTap — одна марка на всю ванную</title>
 <meta name="description" content="PixelTap — российская марка ухода: лицо, тело, волосы, ногти, брови и детская серия. Более 100 средств. Официально на Ozon и Wildberries.">
 <meta property="og:title" content="PixelTap — одна марка на всю ванную">
@@ -13,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=85">
+<link rel="stylesheet" href="css/site.css?v=86">
 <script>
   /* Прятать содержимое под анимацию можно только если скрипты живы —
      иначе при сбое JS страница осталась бы пустой. */
@@ -337,7 +357,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </p>
 </footer>
 
-<script src="js/site.js?v=85"></script>
-<script src="js/motion.js?v=85"></script>
+<script src="js/site.js?v=86"></script>
+<script src="js/motion.js?v=86"></script>
 </body>
 </html>

@@ -272,9 +272,13 @@ function brandKey(raw) {
 // Что считаем своей маркой. Всё остальное — чужие товары в том же кабинете.
 const OWN = ['pixeltap'];
 
-function isOwnBrand(raw) {
+function isOwnBrand(raw, name = '') {
   const k = brandKey(raw);
-  return OWN.some(o => k.startsWith(o));
+  if (OWN.some(o => k.startsWith(o))) return true;
+  // У части карточек поле марки в кабинете пустое, хотя товар наш —
+  // тогда единственный признак это название. Чужим маркам такая поблажка
+  // ничего не даёт: их имя в названии наших товаров не встречается.
+  return !k && OWN.some(o => brandKey(name).includes(o));
 }
 
 /* ---------- раскладка по ритуалу ---------- */
@@ -339,7 +343,7 @@ function merge(wb, ozon) {
       return {
         step, phase,
         brand: p.brand || '',
-        own: isOwnBrand(p.brand),
+        own: isOwnBrand(p.brand, p.name),
         cabinet: p.cabinet || '',
         name: p.name,
         volume: p.volume,
@@ -439,8 +443,20 @@ async function main() {
     return;
   }
 
-  await writeFile(OUT, JSON.stringify(list, null, 2) + '\n', 'utf8');
-  say(`\nЗаписано: ${OUT} (${list.length} позиций)`);
+  /* В файл идёт только то, что показывает страница. Раньше писался весь
+     список целиком, а чужие марки отсеивались уже в браузере — то есть
+     каталог конкурентов, внутренние артикулы и номера кабинетов лежали
+     в открытом доступе: products.json отдаётся любому по прямой ссылке. */
+  const KEEP = ['step', 'name', 'volume', 'desc', 'ozon', 'wb', 'img'];
+  const pub = list.filter(p => p.own).map(p => {
+    const o = {};
+    for (const k of KEEP) if (p[k]) o[k] = p[k];
+    return o;
+  });
+
+  await writeFile(OUT, JSON.stringify(pub, null, 1) + '\n', 'utf8');
+  say(`\nЗаписано: ${OUT} (${pub.length} позиций из ${list.length})`);
+  say('Чужие марки и служебные поля в файл не попали.');
   say('Плашка «каталог в наполнении» исчезнет сама: в выгрузке нет placeholder.');
 }
 
