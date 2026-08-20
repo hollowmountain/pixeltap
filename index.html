@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru" data-phase="morning">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelTap — одна марка на всю ванную</title>
+<meta name="description" content="PixelTap — российская марка ухода: лицо, тело, волосы, ногти, брови и детская серия. Более 100 средств. Официально на Ozon и Wildberries.">
+<meta property="og:title" content="PixelTap — одна марка на всю ванную">
+<meta property="og:description" content="Лицо, тело, волосы, ногти, брови, малыши. Более 100 средств, чтобы не собирать полку из десяти брендов.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFF1F5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFF1F5'/%3E%3Crect x='5' y='5' width='10' height='10' fill='%23FF4D8D'/%3E%3Crect x='17' y='5' width='10' height='10' fill='%23FFC53D'/%3E%3Crect x='5' y='17' width='10' height='10' fill='%23FFC53D'/%3E%3Crect x='17' y='17' width='10' height='10' fill='%23FF4D8D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=84">
+<script>
+  /* Прятать содержимое под анимацию можно только если скрипты живы —
+     иначе при сбое JS страница осталась бы пустой. */
+  document.documentElement.classList.add('js');
+</script>
+</head>
+<body>
+<!--
+THESIS: уход работает курсом, а не покупкой — эта страница считает дни, а не показывает баночку на камне; отказ от кремового «чистого» лендинга косметики.
+OWN-WORLD: текучее полотно + бланк-трекер. Первый экран занимает живая поверхность на WebGL (домен-варп по фрактальному шуму) — разлив сыворотки, посчитанный на GPU, а не фотография. Под ним разлинованный бланк: табличные цифры, отметки-штампы, тонкие линии. Нежное поле, яркий цвет: утро — фуксия по молочно-розовому, вечер — тот же розовый по глубокому сливовому. Жёлтый не украшает, а работает: им отмечен сегодняшний день курса.
+STORY: посетитель попадает в живую поверхность, читает обещание, прокруткой сам заполняет сетку курса и видит, что уход — это расписание; дальше свой утренний и вечерний проход; уходит покупать на Ozon или Wildberries.
+FIRST VIEWPORT: полотно во весь экран, поверх — обещание крупной широкой Archivo, собирающееся построчно, и две кнопки маркетплейсов. Переключатель УТРО/ВЕЧЕР перекрашивает и страницу, и полотно.
+MOTION: три момента, все смысловые — сбор первого экрана, заполнение сетки прокруткой (курс копится на глазах), проявление секций. Никаких эффектов ради эффектов.
+IMAGERY: ни одного растрового изображения — весь визуал считается кодом. Генерация не использовалась.
+FORM: «сетка ритуала», кандидат 7 из семи, seed ad7ceee8; пересобран в кинематографичную версию по правке заказчика.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict and DESIGN.md.
+-->
+
+<a class="skip" href="#catalog">К каталогу</a>
+
+<header class="bar">
+  <a class="mark" href="#top" aria-label="PixelTap, наверх">
+    <!-- Логотип марки: цветные губы. Собран вектором — чёткий в любом
+         размере, весит байты, отдельного запроса не требует.
+
+         Форма нарисована заново: прежний контур достался от золотой
+         версии, стилизованной под металл, и верхняя губа там расходилась
+         в стороны крыльями. Здесь у неё нормальная анатомия — лук
+         Купидона с выемкой посередине и опущенные уголки. -->
+    <svg class="mark-glyph" viewBox="0 0 64 44" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="lipsClip">
+          <path d="M4 19c6-7 14-12 20-11 3 .5 6 3 8 5.5 2-2.5 5-5 8-5.5 6-1 14 4 20 11-8-3-16-4-22-2.5-3 .7-5 1.5-6 2-1-.5-3-1.3-6-2C20 15 12 16 4 19Z"/>
+          <path d="M4 19c8-1.5 16-2 22-1 3 .5 5 1.2 6 1.6 1-.4 3-1.1 6-1.6 6-1 14-.5 22 1-2 9-14 18-28 18S6 28 4 19Z"/>
+        </clipPath>
+      </defs>
+
+      <!-- Цветные пятна свободно лежат прямоугольником и обрезаются
+           формой губ — так заливка никогда не вылезет за контур. -->
+      <g clip-path="url(#lipsClip)">
+        <rect x="0" y="0" width="64" height="44" fill="#D81E5B"/>
+        <ellipse cx="12" cy="14" rx="11" ry="7" fill="#E8175D"/>
+        <ellipse cx="52" cy="14" rx="11" ry="7" fill="#C2185B"/>
+        <ellipse cx="26" cy="13" rx="7"  ry="4" fill="#2E9E63"/>
+        <ellipse cx="38" cy="13" rx="6"  ry="4" fill="#F2B705"/>
+        <ellipse cx="32" cy="15" rx="5"  ry="3" fill="#1F9E8F"/>
+        <ellipse cx="18" cy="28" rx="9"  ry="6" fill="#7B2D8E"/>
+        <ellipse cx="32" cy="29" rx="9"  ry="6" fill="#E8175D"/>
+        <ellipse cx="46" cy="28" rx="9"  ry="6" fill="#F26430"/>
+        <ellipse cx="26" cy="33" rx="6"  ry="4" fill="#2E9E63"/>
+        <ellipse cx="42" cy="24" rx="5"  ry="3" fill="#F2B705"/>
+        <ellipse cx="27" cy="30" rx="3.4" ry="1.9" fill="#FFFFFF" opacity=".8"/>
+      </g>
+
+      <!-- Контур поверх заливки: в мелком размере без него цветные
+           пятна сливаются и форма перестаёт читаться. -->
+      <path fill="none" stroke="#2A0A18" stroke-width="1.6" stroke-linejoin="round" d="M4 19c6-7 14-12 20-11 3 .5 6 3 8 5.5 2-2.5 5-5 8-5.5 6-1 14 4 20 11-8-3-16-4-22-2.5-3 .7-5 1.5-6 2-1-.5-3-1.3-6-2C20 15 12 16 4 19Z"/>
+      <path fill="none" stroke="#2A0A18" stroke-width="1.6" stroke-linejoin="round" d="M4 19c8-1.5 16-2 22-1 3 .5 5 1.2 6 1.6 1-.4 3-1.1 6-1.6 6-1 14-.5 22 1-2 9-14 18-28 18S6 28 4 19Z"/>
+    </svg>
+    <span class="mark-word">Pixel Tap</span>
+  </a>
+
+  <nav class="bar-nav" aria-label="Разделы">
+    <a href="#lanolin">Ланолин</a>
+    <a href="#catalog">Каталог</a>
+    <a href="#brand">О бренде</a>
+  </nav>
+
+
+</header>
+
+<!-- Ботанический слой: мелкие цветы и листья, разбросанные по странице.
+     Каждый качается в своём темпе и уходит вверх с прокруткой чуть
+     медленнее текста, поэтому страница читается слоистой. -->
+<div class="deco" aria-hidden="true">
+  <img class="dec d1" src="img/deco/rose.webp" alt="" loading="lazy" decoding="async">
+  <img class="dec d2" src="img/deco/blossom.webp" alt="" loading="lazy" decoding="async">
+  <img class="dec d3" src="img/deco/leaf.webp" alt="" loading="lazy" decoding="async">
+  <img class="dec d4" src="img/deco/blossom.webp" alt="" loading="lazy" decoding="async">
+  <img class="dec d5" src="img/deco/rose.webp" alt="" loading="lazy" decoding="async">
+  <img class="dec d6" src="img/deco/leaf.webp" alt="" loading="lazy" decoding="async">
+  <img class="dec d7" src="img/deco/blossom.webp" alt="" loading="lazy" decoding="async">
+  <img class="dec d8" src="img/deco/rose.webp" alt="" loading="lazy" decoding="async">
+</div>
+
+<main id="top">
+
+  <!-- ============ 1. ПЕРВЫЙ ЭКРАН ============ -->
+  <section class="hero" aria-labelledby="claim">
+    <!-- Сцена первого экрана. Снимок собран из настоящих флаконов:
+         их фото ушли образцами в модель, и она вписала предметы в один
+         кадр с общим светом — поэтому это фотография, а не аппликация.
+         Поверх идёт дуга карточек каталога: они кликабельные, но
+         приглушены, чтобы не спорить со сценой. -->
+    <div class="scene">
+      <img class="scene-shot" src="img/hero-scene.webp" alt="Средства PixelTap на камне среди пионов" width="1536" height="1024" decoding="async">
+      <!-- Лента каталога: карточки идут сверху вниз вдоль правого края.
+           Список бесконечный — как только карточка уходит за нижний край,
+           она возвращается наверх. -->
+      <div class="strip" aria-label="Товары бренда">
+        <div class="strip-track" id="strip"></div>
+      </div>
+    </div>
+
+    <div class="hero-say">
+      <h1 id="claim">
+        <span class="claim-line claim-mark"><span>Pixel<b>Tap</b></span></span>
+        <span class="claim-line"><span>Одна марка</span></span>
+        <span class="claim-line claim-hot"><span>на всю ванную</span></span>
+      </h1>
+
+      <p class="lede">
+        Лицо, тело, волосы, ногти, брови, малыши. 100+ средств —
+        чтобы не собирать полку из десяти брендов.
+      </p>
+
+      <div class="acts">
+        <a class="act" href="https://www.ozon.ru/seller/pixeltap/" target="_blank" rel="noopener">
+          Купить на Ozon
+          <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 17 17 7M9.6 7H17v7.4"></path>
+          </svg>
+        </a>
+        <a class="act" href="https://www.wildberries.ru/seller/232922" target="_blank" rel="noopener">
+          Купить на Wildberries
+          <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 17 17 7M9.6 7H17v7.4"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <a class="hero-cue" href="#lanolin" aria-label="К разделу про ланолин">
+      <span>Ланолин</span>
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 5v14M6 13l6 6 6-6"></path>
+      </svg>
+    </a>
+  </section>
+
+  <!-- Каменная лента на стыке сцен: шов между двумя фотографиями
+       превращается в предмет. Текстура бесшовная, вторая копия строки
+       идёт следом, поэтому лента не обрывается. -->
+  <div class="ticker" role="marquee" aria-label="О марке PixelTap">
+    <div class="tick-run">
+      <div class="tick-seq">
+        <span class="tick-item">натуральные составы</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">без отдушек и красителей</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">безопасно для мамы и малыша</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">производство в России</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">уход за лицом, телом и волосами</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">на Ozon и Wildberries</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+      </div>
+      <div class="tick-seq" aria-hidden="true">
+        <span class="tick-item">натуральные составы</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">без отдушек и красителей</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">безопасно для мамы и малыша</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">производство в России</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">уход за лицом, телом и волосами</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">на Ozon и Wildberries</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 2. ЛАНОЛИН ============ -->
+  <section class="lan" id="lanolin" aria-labelledby="lan-h">
+    <!-- Кадр собран моделью по фотографии настоящей банки: этикетка
+         и логотип на снимке те же, что на товаре. Правая треть кадра
+         намеренно пустая — там лежит текст. -->
+    <!-- Загрузку не откладываем: снимок занимает половину экрана, и при
+         отложенной загрузке секция несколько секунд стоит пустой, если
+         пролистать к ней быстро. fetchpriority поднимает его в очереди. -->
+    <img class="lan-shot" src="img/lanolin/scene.jpg" alt="Овцы на скале, рядом баночки ланолинового крема PixelTap" width="1536" height="1024" decoding="async" fetchpriority="high">
+
+    <div class="lan-say">
+      <p class="lan-over">Ингредиент</p>
+      <h2 id="lan-h" data-split>Самый недооценённый</h2>
+      <p>
+        О нём почти не пишут в рекламе — он не звучит модно. Ни пептидов,
+        ни стволовых клеток. Просто воск из овечьей шерсти, которым лечат
+        трещины у кормящих матерей и обветренные губы у альпинистов.
+      </p>
+      <p>
+        Овца смазывает им шерсть, чтобы не промокнуть в горах под дождём.
+        По составу этот воск ближе к жирам нашей кожи, чем любое
+        растительное масло. <b>Мы просто вычесали его и очистили</b> —
+        овца при этом продолжает пастись.
+      </p>
+
+      <dl class="lan-facts">
+        <div><dt class="tnum">≈15%</dt><dd>воска в свежем руне</dd></div>
+        <div><dt class="tnum">37 °C</dt><dd>плавится от тепла ладони</dd></div>
+        <div><dt class="tnum">1</dt><dd>ингредиент, без отдушек</dd></div>
+      </dl>
+
+      <a class="act lan-cta" href="#catalog" data-open-group="Ланолин">
+        Средства с ланолином
+        <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7 17 17 7M9.6 7H17v7.4"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Каменная лента на стыке сцен: шов между двумя фотографиями
+       превращается в предмет. Текстура бесшовная, вторая копия строки
+       идёт следом, поэтому лента не обрывается. -->
+  <div class="ticker" role="marquee" aria-label="Что ещё есть в каталоге">
+    <div class="tick-run">
+      <div class="tick-seq">
+        <span class="tick-item">сыворотки и пилинги</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">уход за бровями и ресницами</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">детская серия</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">ланолиновая линия</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">средства для волос</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">более 100 позиций в каталоге</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+      </div>
+      <div class="tick-seq" aria-hidden="true">
+        <span class="tick-item">сыворотки и пилинги</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">уход за бровями и ресницами</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">детская серия</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">ланолиновая линия</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">средства для волос</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+        <span class="tick-item">более 100 позиций в каталоге</span>
+        <span class="tick-dot" aria-hidden="true">◆</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 3. КАТАЛОГ ============ -->
+  <section class="catalog" id="catalog" aria-labelledby="catalog-h">
+    <div class="catalog-head" data-rise="0">
+      <h2 id="catalog-h" data-split>Каталог</h2>
+      <div class="filters" role="group" aria-label="Фильтр по времени">
+        <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">Все</button>
+        <button type="button" class="filter" data-filter="morning" aria-pressed="false">Утро</button>
+        <button type="button" class="filter" data-filter="evening" aria-pressed="false">Вечер</button>
+      </div>
+    </div>
+
+    <!-- Плашка «каталог в наполнении» удалена: товары теперь настоящие,
+         выгружаются из кабинетов через tools/fetch-catalog.mjs -->
+
+    <div class="rows" id="rows" data-rise="60"></div>
+  </section>
+
+  <!-- ============ 4. О БРЕНДЕ ============ -->
+  <section class="brand" id="brand" aria-labelledby="brand-h">
+    <h2 id="brand-h" class="brand-name">PixelTap</h2>
+    <div class="brand-body" data-rise="60">
+      <p class="brand-lead">
+        Российская марка ухода за кожей. Мы продаём там, где вы уже
+        покупаете: на Ozon и Wildberries. А этот сайт существует, чтобы
+        показать то, что не помещается в карточку товара — порядок,
+        в котором средства работают.
+      </p>
+      <dl class="facts">
+        <div class="fact">
+          <dt>Где купить</dt>
+          <dd>Ozon и Wildberries, официальные кабинеты марки</dd>
+        </div>
+        <div class="fact">
+          <dt>Правообладатель</dt>
+          <dd>ИП Арасланова З. Г.</dd>
+        </div>
+        <div class="fact">
+          <dt>ОГРНИП</dt>
+          <dd class="tnum">321745600074072</dd>
+        </div>
+        <div class="fact">
+          <dt>ИНН</dt>
+          <dd class="tnum">744402248532</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-acts">
+    <a class="act" href="https://www.ozon.ru/seller/pixeltap/" target="_blank" rel="noopener">
+      Ozon
+      <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M7 17 17 7M9.6 7H17v7.4"></path>
+      </svg>
+    </a>
+    <a class="act" href="https://www.wildberries.ru/seller/232922" target="_blank" rel="noopener">
+      Wildberries
+      <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M7 17 17 7M9.6 7H17v7.4"></path>
+      </svg>
+    </a>
+  </div>
+  <p class="foot-legal">
+    PixelTap — торговая марка ИП Араслановой З. Г.
+    Сайт не является интернет-магазином: покупка проходит на маркетплейсе.
+  </p>
+</footer>
+
+<script src="js/site.js?v=84"></script>
+<script src="js/motion.js?v=84"></script>
+</body>
+</html>

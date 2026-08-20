@@ -1,0 +1,1228 @@
+/* PixelTap — «сетка ритуала».
+   Мир: бланк-трекер. Разлиновка, табличные цифры, отметки-штампы,
+   поле насыщенного цвета вместо воздуха. Утро и вечер — не тема
+   оформления, а两 состояния продукта, поэтому палитра переключается
+   вместе с содержанием. */
+
+/* Золото марки. Один набор оттенков на обе фазы: металл не меняет цвет
+   от времени суток, меняется только свет вокруг него. */
+:root {
+  --gold-hi:  #F6E3A1;
+  --gold:     #C9A227;
+  --gold-lo:  #8A6A15;
+}
+
+/* ---------- палитра: утро ----------
+   Нежное поле, яркий цвет. Розовый — цвет марки и несёт крупные плоскости;
+   жёлтый работает, а не украшает: им отмечен сегодняшний день курса. */
+:root { --bar-h: 74px; }
+
+:root,
+[data-phase="morning"] {
+  --ground:      #FFF1F5;
+  --ground-2:    #FFE2EB;
+  --ink:         #33091E;
+  --ink-soft:    #8A4260;
+  --field:       #FF3D82;
+  --field-ink:   #33091E;
+  --field-deep:  #D6216A;
+  /* Яркая фуксия годится под заливку и крупный заголовок, но мелкий текст
+     ею набирать нельзя — на светлом поле это 2.9:1. Для подписей берём
+     глубокий тон того же цвета. */
+  --field-text:  #C4185F;
+  /* Заголовок первого экрана лежит на живом полотне: обычная фуксия даёт
+     на нём 2.7:1. Берём тон глубже — яркость сохраняется, контраст проходит. */
+  --field-strong: #E01464;
+  --accent:      #FFC53D;
+  --accent-ink:  #33091E;
+  --accent-deep: #E0A21A;
+  --line:        rgba(51, 9, 30, .16);
+  --line-strong: rgba(51, 9, 30, .34);
+  --mark:        #33091E;
+  --sel:         #FFC53D;
+  --sel-ink:     #33091E;
+  --shadow:      0 2px 0 rgba(51,9,30,.10), 0 14px 30px -18px rgba(51,9,30,.45);
+}
+
+/* ---------- палитра: вечер ----------
+   Тот же розовый, но по глубокому сливовому: вечер отличается светом,
+   а не сменой марки. Жёлтый теплеет до лампового. */
+[data-phase="evening"] {
+  --ground:      #2B0C26;
+  --ground-2:    #3B1234;
+  --ink:         #FFECF4;
+  --ink-soft:    #D093AF;
+  --field:       #FF7FB0;
+  --field-ink:   #2B0C26;
+  --field-deep:  #FFA9C8;
+  /* На тёмном поле подписи читаются самим брендовым розовым. */
+  --field-text:  #FF7FB0;
+  /* На тёмном полотне брендовый розовый и так контрастен. */
+  --field-strong: #FF7FB0;
+  --accent:      #FFC97A;
+  --accent-ink:  #2B0C26;
+  --accent-deep: #E8A855;
+  --line:        rgba(255, 236, 244, .18);
+  --line-strong: rgba(255, 236, 244, .38);
+  --mark:        #FFECF4;
+  --sel:         #FFC97A;
+  --sel-ink:     #2B0C26;
+  --shadow:      0 2px 0 rgba(0,0,0,.30), 0 18px 36px -20px rgba(0,0,0,.85);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+  -webkit-text-size-adjust: 100%;
+  /* Лента специально шире колонки содержимого — ровно на ширину полосы
+     прокрутки, чтобы уйти под неё. Этот излишек нужно погасить здесь,
+     иначе страница получает лишнюю прокрутку вбок. clip, а не hidden:
+     hidden на корне ломает якорные переходы к секциям. */
+  overflow-x: clip;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Archivo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color .7s cubic-bezier(.22,.61,.36,1),
+              color        .7s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Поверхности, которые рисует браузер, тоже принадлежат этому миру. */
+::selection { background: var(--sel); color: var(--sel-ink); }
+/* Полоса прокрутки узкая и приглушённая. Яркая фуксия во всю высоту
+   читалась не как полоса, а как вертикальная граница страницы —
+   особенно рядом с текстом, прижатым к правому краю. */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  /* Полупрозрачный, без сплошной обводки: на участке с лентой сквозь
+     него видно камень, и полоса перестаёт резать её надвое. */
+  background: color-mix(in srgb, var(--ink) 26%, transparent);
+  border-radius: 9px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--ink) 38%, transparent); }
+html { scrollbar-color: color-mix(in srgb, var(--ink) 24%, transparent) transparent; scrollbar-width: thin; }
+
+:focus-visible {
+  outline: 2.5px solid var(--field);
+  outline-offset: 3px;
+}
+
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-weight: 800; line-height: 1.02; letter-spacing: -.03em; }
+img { max-width: 100%; display: block; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+ol, ul { list-style: none; }
+
+/* Цифры в бланке обязаны стоять в колонку. */
+.tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 200;
+  background: var(--ink); color: var(--ground);
+  padding: 12px 18px; font-weight: 700;
+  transition: top .2s ease;
+}
+.skip:focus { top: 12px; }
+
+/* ============ ВЕРХНЯЯ ПЛАНКА ============ */
+.bar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; gap: 28px;
+  padding: 14px clamp(16px, 3vw, 40px);
+  background: color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  transition: background-color .7s cubic-bezier(.22,.61,.36,1),
+              border-color .7s cubic-bezier(.22,.61,.36,1);
+}
+.mark { display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-height: 44px; }
+.mark-glyph { width: 38px; height: 26px; flex-shrink: 0; }
+
+/* Надпись марки — тем же набором и тоном, что весь текст сайта.
+   Цвет несут только губы: два цветных пятна рядом спорили бы,
+   а знак и так узнаётся по ним. */
+.mark-word {
+  font-weight: 800;
+  font-size: 19px;
+  font-stretch: 112%;
+  letter-spacing: -.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+.bar-nav { display: flex; gap: 28px; margin-left: auto; }
+.bar-nav a {
+  /* Планшет показывает эту навигацию и трогает её пальцем, поэтому
+     высота цели полноценная, а подчёркивание держится на псевдоэлементе. */
+  position: relative;
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 17px; font-weight: 600; color: var(--ink-soft);
+  padding: 0 2px;
+  transition: color .2s ease;
+}
+.bar-nav a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 9px;
+  height: 2px; background: var(--field);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .22s cubic-bezier(.16,.84,.28,1);
+}
+.bar-nav a:hover::after { transform: scaleX(1); }
+.bar-nav a:hover { color: var(--ink); }
+
+/* переключатель фазы — главный орган управления страницей */
+.phase-switch {
+  display: flex; flex-shrink: 0;
+  border: 1.5px solid var(--line-strong);
+}
+.phase-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 15px; min-height: 44px;
+  font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  color: var(--ink-soft);
+  transition: background-color .35s ease, color .35s ease;
+}
+.phase-btn + .phase-btn { border-left: 1.5px solid var(--line-strong); }
+.phase-btn:hover { color: var(--ink); }
+.phase-btn[aria-pressed="true"] { background: var(--field); color: var(--field-ink); }
+.phase-btn .ico { width: 17px; height: 17px; }
+
+.ico { fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ============ ПЕРВЫЙ ЭКРАН ============ */
+.hero {
+  position: relative;
+  /* Шапка стоит НАД первым экраном, а не поверх него, поэтому её высоту
+     нужно вычесть. Иначе экран получается выше окна: низ снимка и конец
+     ленты уезжают за край, и отступы сверху и снизу выглядят разными,
+     хотя заданы одинаковыми. */
+  min-height: calc(100svh - var(--bar-h));
+  display: flex; align-items: center;
+  padding: clamp(40px, 6vh, 90px) clamp(16px, 3vw, 40px);
+  overflow: hidden;
+}
+
+/* Полотно: считается на GPU, лежит под текстом и уходит вниз медленнее его. */
+.hero-canvas {
+  position: absolute; inset: -8% 0 0; z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+.hero-canvas::after {
+  /* Смысловая подложка под текстом: без неё крупный заголовок садится
+     на самое светлое место полотна и теряет контраст. */
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(100deg,
+    var(--ground) 0%,
+    color-mix(in srgb, var(--ground) 82%, transparent) 34%,
+    color-mix(in srgb, var(--ground) 20%, transparent) 62%,
+    transparent 100%);
+}
+#gl { display: block; width: 100%; height: 100%; }
+
+/* Пока WebGL не ответил (или не поддержан) — на его месте статичное поле
+   того же настроения, а не дыра. */
+.hero-canvas {
+  background:
+    radial-gradient(120% 90% at 78% 18%, color-mix(in srgb, var(--field) 55%, transparent), transparent 62%),
+    radial-gradient(90% 80% at 92% 72%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 58%),
+    var(--ground-2);
+}
+
+.hero-say { position: relative; z-index: 3; max-width: min(46%, 620px); margin-right: auto; will-change: transform, opacity; }
+
+h1 {
+  /* Набор тот же, что у остального текста: гротеск, без антиквы
+     и без металла. Отличается размером и широким начертанием.
+
+     Кегль привязан к высоте окна, а не только к ширине: в заголовке
+     четыре строки, и на невысоком экране он выталкивал за нижний край
+     кнопки и указатель прокрутки. min() берёт меньшее из двух мер. */
+  font-size: min(clamp(40px, 7vw, 104px), 13.5svh);
+  font-stretch: 118%;
+  line-height: 1.0;
+  margin-bottom: clamp(16px, 2vw, 26px);
+}
+/* Строки собираются снизу, каждая из-под своей маски. */
+.claim-line { display: block; overflow: hidden; }
+.claim-line > span { display: block; }
+html.js .claim-line > span {
+  transform: translateY(102%);
+  transition: transform .82s cubic-bezier(.16,.84,.28,1);
+}
+html.js .claim-line.in > span { transform: none; }
+/* Две последние строки — фуксией марки. Тон глубже обычного: заголовок
+   лежит поверх снимка, и на светлых участках яркая фуксия падает
+   до 2.7:1. */
+.claim-hot { color: var(--field-strong, var(--field)); }
+
+/* Название марки — той же величины, что и акцентная строка: заголовок
+   читается одной фразой, а не подписью с текстом. «Pixel» идёт фуксией,
+   «Tap» — тёмным, как «Одна марка»: два цвета внутри имени связывают
+   его с обеими половинами заголовка. */
+.claim-mark { color: var(--field-strong, var(--field)); }
+.claim-mark b { font-weight: inherit; color: var(--ink); }
+
+/* Лид и кнопки проявляются после того, как заголовок собрался. */
+html.js .hero-say .lede, html.js .hero-say .acts {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.16,.84,.28,1);
+}
+html.js body.lit .hero-say .lede { opacity: 1; transform: none; transition-delay: .05s; }
+html.js body.lit .hero-say .acts { opacity: 1; transform: none; transition-delay: .16s; }
+
+/* Указатель вниз: подпись даёт причину прокрутить, а не просто стрелку. */
+html.js .hero-cue { opacity: 0; }
+.hero-cue {
+  position: absolute; z-index: 2;
+  left: clamp(16px, 3vw, 40px); bottom: clamp(24px, 4vh, 44px);
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 10px 4px; min-height: 44px;
+  font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0; transition: opacity .8s ease .5s, color .25s ease;
+}
+body.lit .hero-cue { opacity: .75; }
+.hero-cue:hover { opacity: 1; }
+.hero-cue .ico { width: 17px; height: 17px; animation: cue 2.4s ease-in-out infinite; }
+@keyframes cue { 0%,100% { transform: none; } 50% { transform: translateY(5px); } }
+
+.lede {
+  font-size: clamp(16px, 1.25vw, 19px);
+  color: var(--ink-soft);
+  max-width: 56ch; margin-bottom: clamp(20px, 2.4vh, 30px);
+}
+/* Поверх живого полотна вторичный тон не держит 4.5:1 — на первом экране
+   лид набирается основным цветом, а иерархию держит размер, не яркость. */
+.hero .lede { color: var(--ink); }
+.say-evening { display: none; }
+[data-phase="evening"] .say-morning { display: none; }
+[data-phase="evening"] .say-evening { display: inline; }
+
+.acts { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+.act {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 15px 22px; min-height: 48px;
+  font-size: 14.5px; font-weight: 700; letter-spacing: .01em;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  transition: transform .18s cubic-bezier(.22,.61,.36,1),
+              background-color .25s ease, color .25s ease, box-shadow .25s ease;
+}
+.act:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.act:active { transform: translateY(0); }
+.act:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.act:active { transform: translateY(0); }
+
+/* Отклик живёт внутри кнопки, а не двигает её саму: стрелка уходит
+   по диагонали — туда, куда ведёт ссылка. Габариты неподвижны,
+   поэтому соседние кнопки не наезжают друг на друга. */
+.act .ico-out {
+  transition: transform .28s cubic-bezier(.16,.84,.28,1);
+}
+.act:hover .ico-out { transform: translate(3px, -3px); }
+/* Кнопка площадки. Размер иконки задаётся здесь же: без явной ширины
+   значок наследует размер шрифта и раздувается во всю карточку. */
+.buy {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 15px; min-height: 44px;
+  font-size: 13px; font-weight: 700;
+  color: var(--ink);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.buy:hover { background: var(--field); border-color: var(--field); color: var(--field-ink); }
+.buy[aria-disabled="true"] {
+  opacity: .45; cursor: not-allowed; border-style: dashed;
+}
+.buy[aria-disabled="true"]:hover {
+  background: none; color: var(--ink-soft); border-color: var(--line-strong);
+}
+.buy .ico {
+  width: 13px; height: 13px; flex-shrink: 0;
+  transition: transform .28s cubic-bezier(.16,.84,.28,1);
+}
+.buy:hover .ico { transform: translate(3px, -3px); }
+/* Обе кнопки площадок одинаковые. Заливка на одной делала её главной,
+   хотя площадки равнозначны: покупатель идёт туда, где уже есть. */
+.act:hover { background: var(--field); border-color: var(--field); color: var(--field-ink); }
+.ico-out { width: 16px; height: 16px; }
+
+.legend {
+  display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
+  font-size: 13.5px; color: var(--ink-soft);
+  padding-top: 20px; border-top: 1px solid var(--line);
+}
+.legend-cell {
+  width: 15px; height: 15px; flex-shrink: 0;
+  background: var(--field); border: 1.5px solid var(--field-deep);
+}
+.legend-today { background: var(--accent); border-color: var(--accent-deep); }
+.legend-cell + span { margin-right: 6px; }
+.legend-note { margin-left: auto; }
+
+
+/* ============ СЦЕНА ПЕРВОГО ЭКРАНА ============
+   Один снимок: флаконы на камне среди пионов. Поверх него по дуге
+   плывут карточки каталога — приглушённые, чтобы сцена оставалась
+   главной, но кликабельные. */
+.scene {
+  position: absolute; inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.scene-shot {
+  position: absolute;
+  /* Прижат к правому краю и растянут ровно на высоту экрана. Ширина
+     свободная — сколько получится по пропорции снимка.
+
+     Почему не object-fit: и cover, и contain здесь зависят от того,
+     что окажется «уже» — кадр или окно. На широком мониторе cover
+     срезал верх вместе с крышкой флакона, а contain на узком вписывал
+     снимок по ширине и оставлял пустые поля сверху и снизу. Жёсткая
+     высота убирает эту зависимость: кадр всегда во весь рост, а лишнее
+     по горизонтали уходит за левый край — там только туман и текст. */
+  top: 0; right: 0;
+  height: 100%;
+  width: auto;
+  /* Перебиваем глобальное img { max-width: 100% } — иначе снимок
+     не даст себе стать шире окна и высота снова поедет. */
+  max-width: none;
+  /* Три маски разом: слева снимок уходит в поле под текст, сверху —
+     в цвет верхней панели, снизу — в фон страницы. Без нижней и верхней
+     кадр обрывался прямой линией, и это читалось как край наклейки.
+     mask-composite: intersect перемножает их, оставляя видимым только
+     то, что непрозрачно во всех трёх. */
+  mask-image:
+    linear-gradient(90deg, transparent 3%, #000 40%),
+    linear-gradient(0deg,  transparent 0%, #000 10%);
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 3%, #000 40%),
+    linear-gradient(0deg,  transparent 0%, #000 10%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* ---- лента каталога справа ---- */
+.strip {
+  position: absolute;
+  /* Равные поля сверху и снизу: высоту не задаём, её определяют
+     сами отступы — тогда лента всегда сидит по центру по вертикали
+     независимо от высоты экрана. */
+  top: clamp(40px, 6vh, 90px);
+  bottom: clamp(40px, 6vh, 90px);
+  right: clamp(16px, 2.4vw, 40px);
+  width: clamp(96px, 9vw, 150px);
+  overflow: hidden;
+  pointer-events: auto;
+  /* Рамка ленты: тонкая линия и мягкая подложка, чтобы полоса читалась
+     как отдельный предмет на сцене, а не как случайные картинки. */
+  border: 1.5px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--ground) 55%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 24px 50px -30px color-mix(in srgb, var(--ink) 60%, transparent);
+  padding: 8px;
+}
+/* Края ленты растворяются маской, а не полосой поверх. Накладка
+   сплошного цвета работала бы только на однотонном фоне, а под лентой
+   лежит снимок скалы — и полоса читалась бы как серая плашка. Маска
+   же делает прозрачной саму карточку, что бы под ней ни было. */
+.strip-track {
+  mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+.strip-track {
+  position: absolute; inset: 8px;
+  will-change: transform;
+}
+.strip-card {
+  position: absolute; left: 0; right: 0;
+  z-index: 1;
+  aspect-ratio: 3 / 4;
+  transform: translate3d(0, var(--y, 0px), 0);
+  opacity: .62;
+  transition: opacity .25s ease, scale .25s ease;
+}
+.strip-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  background: #fff;
+  border-radius: 9px;
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  box-shadow: 0 8px 18px -12px color-mix(in srgb, var(--ink) 60%, transparent);
+  transition: filter .25s ease;
+  filter: saturate(.8);
+}
+.strip-card:hover, .strip-card:focus-visible {
+  opacity: 1;
+  scale: 1.06;
+  /* Карточка под курсором выходит вперёд. Без этого она увеличивается,
+     но соседние по ленте ложатся поверх её краёв: в потоке они идут
+     позже, и порядок наложения работает против неё. */
+  z-index: 3;
+}
+.strip-card:hover img, .strip-card:focus-visible img {
+  filter: none;
+  /* Плотная подложка и тень: увеличенная карточка перекрывает соседей,
+     и сквозь прозрачные места снимка не должно просвечивать чужое. */
+  background: #fff;
+  box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--ink) 75%, transparent);
+}
+
+/* Чем уже окно, тем меньше остаётся тумана слева — и текст начинает
+   ложиться на камень. Поэтому с сужением расширяем зону растворения:
+   снимок отступает вправо ровно настолько, чтобы под строками всегда
+   было чистое поле. */
+@media (max-width: 1400px) {
+  .scene-shot {
+    mask-image:
+      linear-gradient(90deg, transparent 6%, #000 56%),
+      linear-gradient(0deg,  transparent 0%, #000 10%);
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent 6%, #000 56%),
+      linear-gradient(0deg,  transparent 0%, #000 10%);
+  }
+}
+
+@media (max-width: 1040px) {
+  /* На узком экране текст идёт поверх снимка, поэтому скалу приглушаем
+     и растворяем снизу — иначе строки лягут на камень и пропадут. */
+  .scene-shot {
+    object-position: 62% 40%;
+    opacity: .42;
+    mask-image: linear-gradient(180deg, #000 46%, transparent 88%);
+    -webkit-mask-image: linear-gradient(180deg, #000 46%, transparent 88%);
+  }
+  .strip { display: none; }   /* на узком экране лента отнимает место у текста */
+}
+
+/* ============ БЕГУЩАЯ СТРОКА НА КАМНЕ ============
+   Стоит на стыке двух фотосекций и снимает шов между ними: вместо
+   границы двух кадров получается предмет — гранитный карниз с
+   высеченной надписью. Текстура взята из той же плиты, что в кадрах. */
+.ticker {
+  position: relative;
+  overflow: hidden;
+  /* Лента тянется на всю ширину окна, а не колонки содержимого:
+     полоса прокрутки занимает свои пиксели справа, и камень обрывался
+     ровно перед ней. 100vw включает эту зону, поэтому текстура уходит
+     под полосу и разрыв исчезает. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: clamp(58px, 7vh, 82px);
+  /* Природный крапчатый гранит, лицензия CC0, текстура бесшовная.
+     Кладку с расшивкой сюда брать нельзя: ряды швов спорят с бегущей
+     строкой и полоса читается забором, а не срезом камня. */
+  background-image: url('../img/tex/granite-cream.webp');
+  background-size: 520px auto;
+  background-repeat: repeat;
+  background-position: center 42%;
+  /* По бокам полоса идёт от края до края — она держит стык двух сцен
+     и обрываться не должна. А вот сверху и снизу узкая кромка тает
+     в фон: без неё камень примыкает к розовому двумя резкими линиями,
+     и появляется ровно тот шов, который эта полоса и убирает. */
+  mask-image: linear-gradient(180deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+/* Затемнение поверх камня: без него светлые прожилки съедают буквы. */
+.ticker::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  /* Гранит светлый, и белый текст на нём терялся. Затемняем полосу
+     тёплой тенью — камень остаётся камнем, буквы читаются. */
+  background: linear-gradient(180deg, rgba(48,26,16,.7), rgba(48,26,16,.56));
+}
+
+.tick-run {
+  /* Высоту задаём явно и не полагаемся на inset: при width: max-content
+     растяжка по вертикали перестаёт работать, и дорожка вытягивается
+     по содержимому. */
+  position: absolute; top: 0; left: 0; z-index: 2;
+  height: 100%;
+  display: flex; align-items: center;
+  width: max-content;
+  animation: tickerRun 46s linear infinite;
+}
+/* Уезжает ровно на половину дорожки — а там стоит её точная копия,
+   поэтому в момент возврата подмены не видно.
+
+   Имя намеренно длинное: короткое «tick» в этом файле уже занято
+   анимацией галочки в клетках курса, а та крутит элемент на 45°
+   и ужимает вчетверо. Совпадение имён — и лента уезжает боком. */
+@keyframes tickerRun { to { transform: translate3d(-50%, 0, 0); } }
+
+/* Вторая лента едет навстречу первой: две одинаково бегущие полосы
+   на одной странице читаются копиркой, встречное движение их разводит. */
+.ticker + .lan + .ticker .tick-run,
+.ticker ~ .ticker .tick-run {
+  animation-direction: reverse;
+}
+/* Остановки под курсором нет: текст в ленте не кликабельный, читать
+   его на паузе незачем, а замирающая полоса выглядит как сбой. */
+
+.tick-seq { display: flex; align-items: center; flex: none; height: 100%; }
+
+.tick-item, .tick-dot {
+  /* Строчными их делать нельзя: в проекте есть правило, которое
+     переводит вложенные span в блок, и тогда каждый пункт растягивается
+     на всю дорожку. Здесь размер и выравнивание заданы явно. */
+  display: inline-flex; align-items: center; flex: none;
+  height: 100%;
+  padding: 0 clamp(16px, 2vw, 34px);
+  font-size: clamp(12px, 1.15vw, 15px);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #FBEFD8;
+  /* Тиснение: тёмная тень снизу и светлая сверху дают ощущение,
+     что буквы высечены в камне, а не лежат на нём. */
+  text-shadow:
+     0 1px 0 rgba(255,244,214,.28),
+     0 -1px 1px rgba(0,0,0,.62),
+     0 2px 5px rgba(0,0,0,.5);
+}
+.tick-dot { color: var(--accent); font-size: 9px; padding: 0 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Движение снимаем, но полосу оставляем: она держит стык. */
+  .tick-run { animation: none; }
+}
+
+/* ============ ЛАНОЛИН ============
+   Кадр держится слева и снизу, текст ложится в пустую правую треть,
+   которая заложена в самом снимке. Стык кадра с полем страницы
+   растворяется маской — иначе фотография читается наклейкой. */
+.lan {
+  position: relative;
+  min-height: min(92svh, 900px);
+  display: flex; align-items: center; justify-content: flex-end;
+  padding: clamp(40px, 6vh, 90px) clamp(16px, 3vw, 40px);
+  /* Верхней границы нет: над секцией лежит каменная лента, и линия
+     под ней читалась вторым швом рядом с первым. */
+  overflow: hidden;
+}
+.lan-shot {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  /* Ширину ограничиваем явно. Если растянуть снимок на всю высоту и
+     дать ширине расти свободно, кадр занимает почти весь экран, и текст
+     ложится прямо на банки — читать невозможно. Две трети оставляют
+     правую часть чистой ровно под колонку текста. */
+  /* Снимок ужимается вместе с расширением текста, иначе они наезжают. */
+  width: 56%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 16% 50%;
+  z-index: 0;
+  /* Три маски: справа кадр уходит под текст, снизу и сверху — в фон
+     страницы. Верхняя намеренно короткая, 11%: растворение должно
+     закончиться выше голов овец, иначе оно съедает их и стадо
+     выглядит обрезанным по шею. */
+  mask-image:
+    linear-gradient(270deg, transparent 0%, #000 26%),
+    linear-gradient(0deg,   transparent 0%, #000 9%),
+    linear-gradient(180deg, transparent 0%, #000 11%);
+  -webkit-mask-image:
+    linear-gradient(270deg, transparent 0%, #000 26%),
+    linear-gradient(0deg,   transparent 0%, #000 9%),
+    linear-gradient(180deg, transparent 0%, #000 11%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.lan-say {
+  position: relative; z-index: 2;
+  /* Колонка шире: при узкой в середине экрана оставалась пустая
+     полоса между снимком и текстом, и блок читался прижатым к краю. */
+  width: min(62ch, 54%);
+  margin-right: clamp(0px, 2vw, 40px);
+  /* Текст прижат к правому краю, как и сама колонка: тогда её край
+     совпадает с краем экрана и блок читается цельным, а не висящим
+     посреди тумана. */
+  text-align: right;
+}
+.lan-over {
+  font-size: 13px; font-weight: 800; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--field-text);
+  margin-bottom: 12px;
+}
+.lan h2 {
+  font-size: clamp(34px, 4.8vw, 68px);
+  font-stretch: 112%;
+  margin-bottom: 20px;
+}
+.lan-say p {
+  color: var(--ink);
+  font-size: clamp(16px, 1.25vw, 19px);
+  margin-bottom: 16px;
+  margin-left: auto;   /* строки короче колонки прижимаются вправо */
+}
+/* Выделенная мысль — фуксией марки, как акцент на первом экране:
+   один и тот же приём в обеих сценах связывает их. */
+.lan-say p b { font-weight: 700; color: var(--field-text); }
+
+/* Три числа в строку — тот же табличный набор, что и везде на сайте. */
+.lan-facts {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 1.4vw, 22px);
+  margin: 26px 0 28px;
+  padding-top: 22px;
+  border-top: 1.5px solid var(--line-strong);
+}
+/* Каждая колонка выравнивается по себе, а не по правому краю блока:
+   число короче подписи, и при общем выравнивании оно уезжало вбок,
+   а не стояло над своим текстом. */
+.lan-facts > div { text-align: center; }
+
+/* Кнопка по центру колонки — под серединой ряда чисел. Строчному
+   элементу автоматические поля центра не дают, поэтому переводим её
+   в блочный поток и задаём ширину по содержимому. */
+.lan-cta {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
+}
+.lan-facts dt {
+  font-size: clamp(22px, 2.3vw, 32px); font-weight: 800;
+  letter-spacing: -.02em; color: var(--field-text);
+  margin-bottom: 5px;
+}
+.lan-facts dd { font-size: 13.5px; color: var(--ink-soft); line-height: 1.35; }
+
+@media (max-width: 1040px) {
+  /* Узкий экран: снимок уходит на задний план и притухает, текст идёт
+     поверх во всю ширину — иначе на него остаётся полоска в треть. */
+  .lan { justify-content: flex-start; }
+  .lan-say { width: 100%; margin-right: 0; }
+  .lan-shot {
+    width: 100%; height: 100%;
+    object-position: 22% 50%;
+    opacity: .3;
+    mask-image: linear-gradient(180deg, #000 40%, transparent 92%);
+    -webkit-mask-image: linear-gradient(180deg, #000 40%, transparent 92%);
+  }
+  .lan-facts { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ============ СЕТКА КУРСА ============ */
+.course {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(28px, 5vw, 80px);
+  align-items: center;
+  padding: clamp(64px, 10vw, 150px) clamp(16px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+}
+.course-say p { color: var(--ink-soft); max-width: 46ch; }
+.course-say .legend { margin-top: 24px; }
+.course h2 { font-size: clamp(32px, 4.4vw, 62px); font-stretch: 112%; margin-bottom: 18px; }
+.course-grid { min-width: 0; }
+
+.grid-head, .grid-foot {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+.grid-head { margin-bottom: 12px; }
+.grid-foot { margin-top: 12px; }
+.grid-title { color: var(--ink); }
+.grid-now { color: var(--field-text); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: clamp(5px, .7vw, 9px);
+  border: 1.5px solid var(--line-strong);
+  padding: clamp(8px, 1.1vw, 14px);
+  background: var(--ground-2);
+  transition: background-color .7s cubic-bezier(.22,.61,.36,1),
+              border-color .7s cubic-bezier(.22,.61,.36,1);
+}
+.cell {
+  position: relative;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  display: flex; align-items: flex-start; justify-content: flex-end;
+  padding: 4px 5px;
+  font-size: clamp(9px, .95vw, 12px); font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  background: transparent;
+  transition: background-color .45s cubic-bezier(.22,.61,.36,1),
+              color .45s cubic-bezier(.22,.61,.36,1),
+              border-color .45s cubic-bezier(.22,.61,.36,1);
+}
+/* Клетка зажигается, когда до неё доходит прокрутка (класс ставит motion.js).
+   До этого она пустая — курс копится на глазах, а не лежит готовым. */
+.cell[data-state="done"].lit {
+  background: var(--field);
+  border-color: var(--field);
+  color: var(--field-ink);
+}
+/* отметка-штамп внутри выполненного дня */
+.cell[data-state="done"].lit::before {
+  content: "";
+  position: absolute; left: 50%; top: 52%;
+  width: 42%; height: 22%;
+  transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  border-left: 2.5px solid var(--field-ink);
+  border-bottom: 2.5px solid var(--field-ink);
+  transform-origin: center;
+  animation: tick .34s cubic-bezier(.16,.84,.28,1) both;
+}
+@keyframes tick {
+  from { transform: translate(-50%,-50%) rotate(-45deg) scale(.3); opacity: 0; }
+  to   { transform: translate(-50%,-50%) rotate(-45deg) scale(1); opacity: 1; }
+}
+/* Сегодняшний день — единственная жёлтая клетка на странице.
+   Розовое поле означает «сделано», жёлтое — «идёт сейчас». */
+.cell[data-state="today"].lit {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+  border-width: 2px;
+  color: var(--accent-ink);
+}
+
+/* ============ КАПЛЯ ============ */
+.drop {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+  padding: clamp(48px, 8vw, 120px) clamp(16px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+  background: var(--ground-2);
+  transition: background-color .7s cubic-bezier(.22,.61,.36,1);
+}
+.drop-stage {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-height: 74svh;
+  justify-self: center;
+  width: 100%;
+}
+#drop { display: block; width: 100%; height: 100%; }
+
+/* Если WebGL не поднялся, на месте сцены остаётся сдержанная плашка,
+   а не пустая дыра в вёрстке. */
+.drop-stage[data-failed] {
+  display: grid; place-items: center;
+  border: 1.5px dashed var(--line-strong);
+  aspect-ratio: 4 / 3;
+}
+.drop-stage[data-failed]::after {
+  content: 'Трёхмерная сцена недоступна в этом браузере';
+  font-size: 13px; color: var(--ink-soft); padding: 20px; text-align: center;
+}
+
+.drop h2 { font-size: clamp(30px, 4.2vw, 58px); font-stretch: 112%; margin-bottom: 18px; }
+.drop-say p { color: var(--ink-soft); max-width: 44ch; }
+.drop-note {
+  margin-top: 20px;
+  font-size: 12px; font-weight: 800; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--field-text);
+}
+
+
+/* ============ БОТАНИЧЕСКИЙ СЛОЙ ============
+   Мелкие цветы и листья по всей странице. Лежат в отдельном слое поверх
+   фона, но под содержимым, и не ловят курсор — читать и нажимать они
+   не мешают. Каждый качается в своём темпе, поэтому строя не видно. */
+.deco {
+  position: absolute; inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.dec {
+  position: absolute;
+  width: clamp(46px, 6vw, 104px);
+  height: auto;
+  opacity: 0;
+  /* Смещение от прокрутки ставит motion.js, качание живёт в анимации;
+     они не спорят, потому что одно на обёртке, другое на самом снимке. */
+  transform: translate3d(0, var(--dy, 0px), 0);
+  transition: opacity .9s ease;
+  filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--ink) 14%, transparent));
+}
+.dec.in { opacity: var(--op, .85); }
+.dec > * { display: block; }
+
+@keyframes float {
+  0%, 100% { rotate: -5deg; translate: 0 0; }
+  50%      { rotate: 6deg;  translate: 0 -12px; }
+}
+.dec.live { animation: float var(--dur, 9s) ease-in-out infinite; animation-delay: var(--delay, 0s); }
+
+/* Раскладка: цветы садятся вдоль всей страницы, ближе к краям, чтобы
+   не спорить с колонкой текста. Проценты — от высоты документа. */
+/* Ботаника начинается ниже первого экрана: там своя сцена со скалой
+   и живыми пионами, и отдельный цветок в углу с ней спорил. */
+.d1 { top: 118vh; left: 3%;  --op: .9;  }
+.d2 { top: 152vh; right: 5%; --op: .8;  width: clamp(38px, 4.6vw, 78px); }
+.d3 { top: 176vh; left: 7%;  --op: .75; width: clamp(30px, 3.6vw, 60px); }
+.d4 { top: 214vh; right: 8%; --op: .85; }
+.d5 { top: 268vh; left: 4%;  --op: .8;  width: clamp(40px, 5vw, 86px); }
+.d6 { top: 322vh; right: 4%; --op: .7;  width: clamp(28px, 3.4vw, 56px); }
+.d7 { top: 372vh; left: 6%;  --op: .82; }
+.d8 { top: 428vh; right: 6%; --op: .78; width: clamp(36px, 4.4vw, 74px); }
+
+@media (max-width: 720px) {
+  /* На узком экране цветы жмутся к самым краям и мельчают: колонка
+     текста здесь во всю ширину, и крупный декор лез бы под строки. */
+  .dec { width: clamp(34px, 11vw, 58px); }
+  .d1, .d3, .d5, .d7 { left: -2%; }
+  .d2, .d4, .d6, .d8 { right: -2%; }
+}
+
+/* ============ РИТУАЛ ============ */
+.ritual {
+  padding: clamp(56px, 7vw, 120px) clamp(16px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 4vw, 72px);
+}
+.ritual-say { position: sticky; top: 110px; align-self: start; }
+/* Название марки в разделе «О бренде» — тем же золотым письмом,
+   что и в шапке: посетитель должен узнать подпись, которую видел
+   на баночке. */
+.brand-name {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-style: italic; font-weight: 600;
+  font-size: clamp(44px, 6vw, 86px);
+  letter-spacing: .005em; line-height: 1;
+  background: linear-gradient(180deg, var(--gold-hi) 0%, var(--gold) 46%, var(--gold-lo) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 0 color-mix(in srgb, var(--ink) 20%, transparent));
+  margin-bottom: 18px;
+}
+
+.ritual h2, .catalog h2, .brand h2 {
+  font-size: clamp(32px, 4.4vw, 62px);
+  font-stretch: 112%;
+  margin-bottom: 18px;
+}
+.ritual-say p { color: var(--ink-soft); max-width: 42ch; }
+
+.steps { border-top: 1.5px solid var(--line-strong); }
+.step {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 18px; align-items: baseline;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.step-n {
+  font-size: 15px; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--field-text);
+}
+.step-name { font-size: clamp(19px, 1.9vw, 26px); font-weight: 700; letter-spacing: -.02em; }
+.step-note { color: var(--ink-soft); font-size: 15px; margin-top: 4px; max-width: 52ch; }
+/* Фаза названа один раз, рядом с заголовком блока. */
+.ritual-phase {
+  display: inline-block; margin-top: 18px;
+  font-size: 12px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--field-text);
+  border: 1.5px solid var(--line-strong); padding: 7px 11px;
+}
+
+
+/* ============ КАТАЛОГ ============ */
+.catalog {
+  /* Сверху вдвое меньше: над секцией лежит каменная лента, и большой
+     отступ отрывал заголовок от неё. Снизу поле прежнее. */
+  padding: clamp(28px, 3.5vw, 60px) clamp(16px, 3vw, 40px) clamp(56px, 7vw, 120px);
+  /* Верхней границы нет: над секцией лежит каменная лента, и линия
+     под ней читалась вторым швом рядом с первым. */
+}
+.catalog-head {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  align-items: flex-end; justify-content: space-between;
+  margin-bottom: 26px;
+}
+.catalog h2 { margin-bottom: 0; }
+/* Категорий много — ряд переносится, а не растягивает страницу.
+   Общей рамки у ряда нет: каждая кнопка теперь отдельный камень. */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; max-width: 100%; }
+.filter {
+  padding: 10px 16px; min-height: 44px;
+  font-size: 13.5px; font-weight: 700;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 8px;
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+.filter-n { margin-left: 7px; font-size: 11px; font-weight: 700; opacity: .55; }
+.filter:hover { color: var(--ink); border-color: var(--ink); }
+.filter.is-on { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+
+.notice {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 16px; margin-bottom: 22px;
+  border: 1.5px dashed var(--line-strong);
+  font-size: 14px; color: var(--ink-soft);
+}
+.notice .ico { width: 19px; height: 19px; flex-shrink: 0; margin-top: 1px; }
+
+/* ---- каталог: сетка карточек ----
+   Снимки товаров сняты в формате 3:4, и это главный визуальный
+   материал сайта. Поэтому каталог — сетка, где ведёт фотография,
+   а не строка списка, в которой снимок съёживается до марки. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: clamp(14px, 1.6vw, 24px);
+  border-top: 1.5px solid var(--line-strong);
+  padding-top: clamp(18px, 2vw, 28px);
+}
+
+.card {
+  display: flex; flex-direction: column;
+  background: var(--ground-2);
+  border: 1px solid var(--line);
+  transition: border-color .25s ease, transform .25s cubic-bezier(.16,.84,.28,1),
+              box-shadow .25s ease, background-color .7s cubic-bezier(.22,.61,.36,1);
+}
+.card:hover {
+  border-color: var(--field);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* Место под снимок держится заранее: при 24 карточках вразнобой
+   догружающиеся картинки иначе дёргают всю сетку. */
+.card-media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.card-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Товар без снимка не оставляет дыру: на его месте — поле в цвете марки. */
+.card-media[data-empty] {
+  background:
+    repeating-linear-gradient(45deg,
+      color-mix(in srgb, var(--field) 12%, transparent) 0 10px,
+      transparent 10px 20px),
+    var(--ground);
+}
+
+.card-body {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 12px 13px 13px;
+  flex: 1;
+}
+.card-step {
+  font-size: 10.5px; font-weight: 800; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--field-text);
+}
+.card-name {
+  font-size: 15px; font-weight: 700; line-height: 1.25;
+  letter-spacing: -.01em;
+  /* Названия у площадок длинные: держим три строки, дальше многоточие,
+     иначе одна карточка растягивает весь ряд. */
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-vol { font-size: 12.5px; color: var(--ink-soft); }
+.card-desc { font-size: 13px; color: var(--ink-soft); }
+
+.card-buy {
+  display: flex; gap: 7px; margin-top: auto; padding-top: 10px;
+}
+.card-buy .buy {
+  flex: 1; justify-content: center;
+  padding: 9px 8px; min-height: 42px;
+  font-size: 12.5px;
+}
+
+/* Догрузка каталога. Кнопка спокойная и в общем строе сайта: камень
+   на ней спорил с карточками — рядом с фотографиями товара тяжёлая
+   порода перетягивала внимание на себя. Здесь она держится рамкой
+   и наливается цветом марки только под курсором. */
+.more {
+  display: block;
+  margin: clamp(20px, 2.6vw, 34px) auto 0;
+  padding: 13px 26px;
+  min-height: 46px;
+
+  /* Набор и рамка ровно те же, что у кнопок площадок: разнобой
+     в кегле и толщине линии выдавал в ней чужой элемент. */
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--ink);
+
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  transition: background-color .25s ease, border-color .25s ease,
+              color .25s ease, transform .18s cubic-bezier(.16,.84,.28,1);
+}
+.more:hover {
+  background: var(--field);
+  border-color: var(--field);
+  color: var(--field-ink);
+  transform: translateY(-1px);
+}
+.more:active { transform: translateY(0); }
+/* Ромб — тем же знаком, что разделители в бегущей строке. */
+.more-dot { color: var(--field); font-size: 8px; margin: 0 10px; vertical-align: middle; }
+.more:hover .more-dot { color: var(--field-ink); }
+.more-n { opacity: .6; }
+
+/* ============ О БРЕНДЕ ============ */
+.brand {
+  padding: clamp(56px, 7vw, 120px) clamp(16px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+  background: var(--ground-2);
+  transition: background-color .7s cubic-bezier(.22,.61,.36,1);
+}
+.brand-body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 4vw, 64px); }
+.brand-lead { font-size: clamp(18px, 1.6vw, 23px); max-width: 46ch; }
+.facts { align-self: start; border-top: 1.5px solid var(--line-strong); }
+.fact {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 13px 0; border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+}
+.fact dt { color: var(--ink-soft); }
+.fact dd { font-weight: 700; text-align: right; }
+
+/* ============ ПОДВАЛ ============ */
+.foot {
+  padding: clamp(40px, 5vw, 72px) clamp(16px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 22px;
+  align-items: center; justify-content: space-between;
+}
+.foot-acts { display: flex; gap: 12px; flex-wrap: wrap; }
+.foot-legal { font-size: 13.5px; color: var(--ink-soft); max-width: 54ch; }
+
+/* ============ АДАПТАЦИЯ ============ */
+@media (max-width: 1040px) {
+  .course, .ritual, .brand-body { grid-template-columns: 1fr; }
+  /* Капля — главный объект секции, а не иллюстрация сбоку: на узком экране
+     она встаёт первой и во всю ширину, текст идёт под ней. */
+  .drop { grid-template-columns: 1fr; }
+  .drop-stage { order: -1; max-height: 52svh; }
+  .ritual-say { position: static; }
+  .hero-say { max-width: none; }
+  /* Узкий экран: подложка под текстом идёт снизу вверх, а не слева направо. */
+  .hero-canvas::after {
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--ground) 55%, transparent) 0%,
+      color-mix(in srgb, var(--ground) 15%, transparent) 38%,
+      color-mix(in srgb, var(--ground) 88%, transparent) 78%,
+      var(--ground) 100%);
+  }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .bar { gap: 12px; padding: 10px 16px; flex-wrap: wrap; }
+  .bar-nav { display: none; }
+  .phase-switch { margin-left: auto; }
+  .mark-word { font-size: 17px; }
+
+  h1 { font-size: clamp(40px, 13vw, 62px); }
+  .acts { flex-direction: column; align-items: stretch; }
+  .act { justify-content: center; }
+
+  .step { grid-template-columns: 34px minmax(0, 1fr); }
+
+  /* На телефоне держим две колонки: одна даёт карточки-плакаты,
+     через которые каталог из 160 позиций не пролистать. */
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .card-body { padding: 10px; gap: 4px; }
+  .card-name { font-size: 13.5px; }
+  .card-step { font-size: 9.5px; }
+  .card-vol { font-size: 11.5px; }
+  .card-buy { flex-direction: column; gap: 6px; }
+  .card-buy .buy { padding: 8px 6px; min-height: 40px; font-size: 12px; }
+
+  .catalog-head { align-items: stretch; }
+  /* Групп больше десятка — на узком экране они листаются вбок,
+     а не переносятся в стену кнопок на пол-экрана. */
+  .filters {
+    width: 100%; overflow-x: auto; flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter { flex: 0 0 auto; }
+
+  .fact { font-size: 14px; }
+}
+
+/* ============ ДВИЖЕНИЕ ============ */
+/* Один авторский момент: смена фазы прокатывается по сетке волной.
+   Всё остальное — короткие отклики на действие, не самостоятельные эффекты. */
+@keyframes cellFlip {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(.82); }
+  100% { transform: scale(1); }
+}
+.cell.is-flipping { animation: cellFlip .5s cubic-bezier(.22,.61,.36,1) both; }
+
+/* Заголовки секций собираются по словам, каждое из-под своей маски. */
+.word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.word > span { display: inline-block; }
+html.js [data-split] .word > span {
+  transform: translateY(104%);
+  transition: transform .8s cubic-bezier(.16,.84,.28,1);
+}
+html.js [data-split].in .word > span { transform: none; }
+
+/* Строки списков въезжают каскадом — задержки ставит motion.js. */
+/* Каскад — только шагам ритуала: их пять и они на виду. Каталог в полторы
+   сотни строк так анимировать нельзя: наблюдатель за прокруткой не успевает,
+   и часть товаров осталась бы невидимой. Товар обязан быть виден всегда. */
+html.js #steps .step {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.16,.84,.28,1);
+}
+html.js #steps .step.in { opacity: 1; transform: none; }
+
+/* Секции проявляются один раз при первом показе. Класс ставит motion.js;
+   если скриптов нет вовсе, содержимое остаётся видимым (см. ниже). */
+html.js [data-rise] {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .75s ease, transform .75s cubic-bezier(.16,.84,.28,1);
+}
+html.js [data-rise].in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  /* Движение убираем, смысловые переходы цвета оставляем короткими:
+     полный ноль превратил бы смену фазы в необъяснимый скачок. */
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .12s !important;
+  }
+  .act:hover { transform: none; }
+}

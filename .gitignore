@@ -1,0 +1,21 @@
+# Ключи площадок — в репозиторий не попадают ни при каких условиях.
+env.txt
+.env
+*.key
+node_modules/
+.playwright-mcp/
+
+# Черновики генераций и исходники картинок. Сайту хватает шести файлов,
+# всё остальное в img/ — рабочий материал на 60 МБ, ему в репозитории
+# делать нечего.
+img/*
+!img/deco/
+img/deco/*
+!img/deco/*.webp
+!img/hero-scene.webp
+!img/lanolin/
+img/lanolin/*
+!img/lanolin/scene.jpg
+!img/tex/
+img/tex/*
+!img/tex/granite-cream.webp
