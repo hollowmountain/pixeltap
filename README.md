@@ -32,6 +32,9 @@ python3 tools/build.py --serve
 
 Откроется на http://localhost:8420 — с теми же заголовками CSP, что на хостинге.
 
+Предпросмотр как на GitHub Pages — `python3 tools/build.py --pages --serve`,
+http://localhost:8421/pixeltap/. Выложить его: `tools/publish-pages.sh --go`.
+
 ## Поменять товары
 
 Всё в `data/catalog.json`. У товара: `id`, `line` (линейка), `name`, `volume`,

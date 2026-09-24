@@ -19,7 +19,7 @@ cd "$ROOT"
 
 REMOTE=$(git remote get-url origin)
 case "$REMOTE" in
-  *hollowmountain/pixeltap.git) ;;
+  git@github-hollow:hollowmountain/pixeltap.git|git@github.com:hollowmountain/pixeltap.git|https://github.com/hollowmountain/pixeltap.git) ;;
   *) echo "origin не похож на репозиторий сайта: $REMOTE" >&2; exit 1 ;;
 esac
 

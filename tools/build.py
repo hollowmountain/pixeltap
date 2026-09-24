@@ -4,6 +4,7 @@
     python3 tools/build.py              сборка для просмотра
     python3 tools/build.py --release    сборка для выкладки: строже проверки
     python3 tools/build.py --serve      собрать и открыть на http://localhost:8420
+    python3 tools/build.py --pages --serve              … предпросмотр на http://localhost:8421/pixeltap/
     python3 tools/build.py --pages      предпросмотр для GitHub Pages в dist-pages/:
                                         адреса с /pixeltap/, закрыт от поисковиков
 
@@ -58,7 +59,8 @@ PAGES = {
                            "Ланолиновые кремы PixelTap: 100% очищенный ланолин для ухода за сосками в период кормления, губами и сухой кожей. Тубы 15 и 50 г, баночки 15, 25 и 50 г. Купить на Ozon и Wildberries.",
                            "Ланолиновый крем PixelTap — 100% ланолин"),
     "privacy/index.html": ("/privacy/", "Конфиденциальность · PixelTap",
-                           "Что остаётся при посещении сайта PixelTap: без форм, регистрации, cookie и счётчиков.",
+                           ("Что остаётся при посещении сайта PixelTap и как работает счётчик Яндекс Метрики."
+                            if METRIKA else "Что остаётся при посещении сайта PixelTap: без форм, регистрации, cookie и счётчиков."),
                            "Конфиденциальность · PixelTap"),
     "404.html": ("/404.html", "Страница не найдена · PixelTap",
                  "Такой страницы нет. Все средства PixelTap — в каталоге на главной.",
@@ -570,12 +572,17 @@ def lint_html(rel, out):
             u = html.unescape(raw.strip().split(" ")[0])
             if not u:
                 continue
-            if u.startswith("/") and not u.startswith("//"):
-                continue  # свой путь
+            if re.fullmatch(r"/(?![/\\])[^\\\s]*", u):
+                # свой путь; «/\evil» браузер читает как //evil — это чужой сайт
+                if BASE and not (u == BASE or u.startswith(BASE + "/")):
+                    fail(f"{rel}: свой адрес без приставки {BASE}: {u}")
+                continue
             if u.startswith("#") or u.startswith("mailto:"):
                 continue
             pr = urlparse(u)
-            if pr.scheme == "https" and pr.netloc in WB_HOSTS | OZON_HOSTS | PARTNER_HOSTS | {own}:
+            if pr.scheme == "https" and pr.netloc in WB_HOSTS | OZON_HOSTS | PARTNER_HOSTS:
+                continue
+            if pr.scheme == "https" and pr.netloc == own and (not BASE or pr.path == BASE or pr.path.startswith(BASE + "/")):
                 continue
             fail(f"{rel}: недопустимая ссылка в {m.group(1)}: {u}")
     for bad in (r'http-equiv="refresh"', r"<base\b", r"<iframe\b", r"<form\b", r"<object\b", r"<embed\b", r"\son\w+="):
@@ -600,17 +607,24 @@ def version_css_urls():
     ASSET_HASH.pop("css/site.css", None)
 
 
+def rebase_manifest():
+    """Адреса в site.webmanifest — под приставку BASE. Вызывается до сборки
+    страниц: ?v= у манифеста должен считаться по тому файлу, что отдаётся."""
+    wm = DIST / "site.webmanifest"
+    if not BASE or not wm.exists():
+        return
+    m = json.loads(wm.read_text("utf-8"))
+    m["start_url"] = BASE + m["start_url"]
+    for icon in m.get("icons", []):
+        icon["src"] = BASE + icon["src"]
+    wm.write_text(json.dumps(m, ensure_ascii=False, indent=2) + "\n", "utf-8")
+    ASSET_HASH.pop("site.webmanifest", None)
+
+
 def write_meta_files():
     if PREVIEW:
         # На Pages нет .htaccess, а robots.txt в подпапке поисковики не читают:
         # предпросмотр закрыт мета-тегом robots на каждой странице.
-        wm = DIST / "site.webmanifest"
-        if wm.exists():
-            m = json.loads(wm.read_text("utf-8"))
-            m["start_url"] = BASE + m["start_url"]
-            for icon in m.get("icons", []):
-                icon["src"] = BASE + icon["src"]
-            wm.write_text(json.dumps(m, ensure_ascii=False, indent=2) + "\n", "utf-8")
         return
     today = date.today().isoformat()
     urls = [p for r, (p, *_rest) in PAGES.items() if r not in NOINDEX]
@@ -731,6 +745,7 @@ def validate_data():
 def main():
     validate_data()
     copy_static()
+    rebase_manifest()
     version_css_urls()
     for rel in PAGES:
         build_page(rel)
@@ -738,6 +753,10 @@ def main():
     total = audit_dist()
     n = sum(1 for _ in DIST.rglob("*") if _.is_file())
     print(f"{DIST.name}/: {n} файлов, {total / 1024 / 1024:.1f} МБ; товаров {len(PRODUCTS)}, линеек {count_of('lines')}")
+    if RELEASE:
+        # на хостинг — только сборка без единого предупреждения
+        errors.extend(f"(--release) {w}" for w in warnings)
+        warnings.clear()
     for w in warnings:
         print("  предупреждение:", w)
     for e in errors:
@@ -762,6 +781,15 @@ def serve():
         def log_message(self, *a):
             pass
 
+        def translate_path(self, path):
+            # предпросмотр живёт в подпапке, как на Pages: /pixeltap/…
+            if BASE:
+                clean = path.split("?", 1)[0].split("#", 1)[0]
+                if clean != BASE and not clean.startswith(BASE + "/"):
+                    return str(DIST / ".нет-такого-адреса")  # → 404
+                path = path[len(BASE):] or "/"
+            return super().translate_path(path)
+
         def send_error(self, code, message=None, explain=None):
             if code == 404 and (DIST / "404.html").exists():
                 body = (DIST / "404.html").read_bytes()
@@ -774,9 +802,9 @@ def serve():
             super().send_error(code, message, explain)
 
     H.extensions_map.update({".avif": "image/avif", ".webmanifest": "application/manifest+json", ".woff2": "font/woff2"})
-    port = 8420
+    port = 8421 if PREVIEW else 8420
     srv = ThreadingHTTPServer(("127.0.0.1", port), partial(H, directory=str(DIST)))
-    print(f"сайт на http://localhost:{port}")
+    print(f"сайт на http://localhost:{port}{BASE}/")
     srv.serve_forever()
 
 
