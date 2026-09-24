@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+{{include:head}}
+{{jsonld}}
+</head>
+<body data-page="home">
+{{include:header}}
+
+<main id="main">
+
+  <!-- ============ первый экран ============ -->
+  <section class="hero" aria-labelledby="hero-h">
+    {{hero}}
+    <div class="wrap hero-in">
+      <div class="hero-say">
+        <div class="hero-top">
+          <p class="kicker">Официальный сайт марки</p>
+          <h1 class="h1" id="hero-h"><span class="h1-brand">PixelTap</span><span class="sr-only"> — </span> одна марка на&nbsp;всю ванную</h1>
+        </div>
+        <div class="hero-bottom">
+          <p class="lede">Ланолин для мам, детская серия, уход за&nbsp;лицом, телом, волосами и&nbsp;бровями&nbsp;— {{np:products}} одной марки. Покупайте в&nbsp;наших магазинах на&nbsp;Ozon и&nbsp;Wildberries.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="{{store:ozon:hero}}" target="_blank" rel="noopener" data-goal="store" data-market="ozon" data-place="hero">
+              <span class="mk mk-ozon" aria-hidden="true"></span>Магазин на Ozon
+              <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+            <a class="btn btn-light" href="{{store:wb:hero}}" target="_blank" rel="noopener" data-goal="store" data-market="wb" data-place="hero">
+              <span class="mk mk-wb" aria-hidden="true"></span>Магазин на Wildberries
+              <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+          <ul class="hero-facts" role="list">
+            <li><b class="tnum">{{n:products}}</b>{{pw:products}}</li>
+            <li><b class="tnum">{{n:lines}}</b>{{pw:lines}}</li>
+            <li><b class="tnum">100%</b>ланолин в кремах для мам</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ хиты ============ -->
+  <section class="section-tight" id="hits" aria-labelledby="hits-h">
+    <div class="wrap">
+      <div class="section-head rise">
+        <div>
+          <p class="kicker">С этого обычно начинают</p>
+          <h2 class="h2" id="hits-h">Хиты PixelTap</h2>
+        </div>
+        <p class="section-head-side">Лидеры продаж своих линеек в&nbsp;наших магазинах на&nbsp;Ozon и&nbsp;Wildberries — по&nbsp;данным за&nbsp;июнь–сентябрь 2026&nbsp;года.</p>
+      </div>
+      <div class="rail">
+        {{bestsellers}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ линейки ============ -->
+  <section class="section section-alt" id="lines" aria-labelledby="lines-h">
+    <div class="wrap">
+      <div class="section-head rise">
+        <div>
+          <p class="kicker">Линейки</p>
+          <h2 class="h2" id="lines-h">{{nw:lines}}&nbsp;— <em>одна</em> марка</h2>
+        </div>
+        <p class="section-head-side">От ланолинового крема для кормящих мам до&nbsp;набора для ламинирования бровей.</p>
+      </div>
+      <div class="tiles">
+        {{tiles}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ланолин ============ -->
+  <section class="section tone-lanolin" id="lanolin" aria-labelledby="lan-h">
+    <div class="wrap story">
+      <div class="story-media rise">
+        {{pic:lanolin-origin|(max-width: 900px) 100vw, (max-width: 1320px) 56vw, 700px|Клок мытой шерсти, пиала с ланолином и банка ланолинового крема PixelTap на граните в горах|lazy}}
+      </div>
+      <div class="story-say rise">
+        <p class="kicker">Ингредиент</p>
+        <h2 class="h2" id="lan-h">Ланолин — <em>воск</em> с&nbsp;характером</h2>
+        <div class="prose">
+          <p>Ланолин — природный воск, который вырабатывает кожа овцы: он покрывает шерсть и&nbsp;защищает её от&nbsp;дождя и&nbsp;ветра. Его получают при мытье настриженной шерсти, а&nbsp;потом многократно очищают.</p>
+          <p>По составу ланолин похож на&nbsp;липиды нашей кожи, поэтому хорошо смягчает её и&nbsp;помогает удерживать влагу. Им&nbsp;ухаживают за&nbsp;сосками в&nbsp;период кормления, за&nbsp;сухими и&nbsp;обветренными губами, за&nbsp;огрубевшей кожей рук, локтей и&nbsp;пяток.</p>
+        </div>
+        <ul class="facts" role="list">
+          <li><b class="tnum">100%</b><span>ланолин в&nbsp;составе кремов линейки</span></li>
+          <li><b class="tnum nowrap">5–25%</b><span>ланолина в&nbsp;немытой шерсти, в&nbsp;зависимости от&nbsp;породы</span></li>
+          <li><b class="tnum">38&nbsp;°C</b><span>около этой температуры начинает плавиться; на&nbsp;тёплой коже размягчается</span></li>
+        </ul>
+        <a class="btn btn-primary" href="/lanolin/">
+          Всё о&nbsp;ланолине
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ мамам и малышам ============ -->
+  <section class="section" id="mama" aria-labelledby="mama-h">
+    <div class="wrap story story-flip">
+      <div class="story-media rise">
+        {{pic:maternity|(max-width: 900px) 100vw, (max-width: 1320px) 50vw, 680px|Косметичка в роддом: ланолиновый крем в тубе, крем под подгузник с цинком и гель для подмывания PixelTap|lazy}}
+      </div>
+      <div class="story-say rise">
+        <p class="kicker">Мамам и малышам</p>
+        <h2 class="h2" id="mama-h">Что взять <em>в&nbsp;роддом</em></h2>
+        <p class="lede">То, что берут с&nbsp;собой в&nbsp;роддом и&nbsp;чем пользуются дома. С&nbsp;какого возраста подходит средство — написано на&nbsp;его упаковке.</p>
+        {{checklist}}
+        <p class="note">Если раздражение на&nbsp;коже малыша не&nbsp;проходит, покажите малыша педиатру.</p>
+        <a class="btn" href="/?line=mama#catalog" data-line-link="mama">
+          Вся линейка для мам и&nbsp;малышей
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ карбокситерапия ============ -->
+  <section class="section section-alt tone-violet" id="carboxy" aria-labelledby="carb-h">
+    <div class="wrap story">
+      <div class="story-media rise">
+        {{pic:tile-carboxy|(max-width: 900px) 100vw, (max-width: 1320px) 56vw, 700px|Три флакона набора для карбокситерапии PixelTap: крем-гель, активатор и маска|lazy}}
+      </div>
+      <div class="story-say rise">
+        <p class="kicker">Уход за лицом дома</p>
+        <h2 class="h2" id="carb-h">Карбокси&shy;терапия <em>в&nbsp;три</em> шага</h2>
+        <div class="prose">
+          <p>В&nbsp;наборе три средства, и&nbsp;работают они только вместе и&nbsp;строго по&nbsp;порядку. Точное время каждого шага и&nbsp;как часто повторять процедуру — в&nbsp;инструкции к&nbsp;набору.</p>
+        </div>
+        <ol class="steps" role="list">
+          <li><b>Крем-гель</b><span>на&nbsp;чистую сухую кожу лица</span></li>
+          <li><b>Активатор</b><span>поверх крем-геля, затем смыть</span></li>
+          <li><b>Маска</b><span>завершает процедуру, затем смыть</span></li>
+        </ol>
+        <p class="note">Набор для домашнего ухода не&nbsp;заменяет процедуры у&nbsp;косметолога. Перед первым применением проверьте реакцию кожи на&nbsp;небольшом участке.</p>
+        <a class="btn" href="/?line=carboxy#catalog" data-line-link="carboxy">
+          Наборы для карбокситерапии
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ каталог ============ -->
+  <section class="section" id="catalog" aria-labelledby="catalog-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Каталог</p>
+          <h2 class="h2" id="catalog-h" tabindex="-1">Все средства PixelTap</h2>
+        </div>
+        <p class="section-head-side">Нажмите на&nbsp;площадку — откроется карточка товара с&nbsp;составом, отзывами и&nbsp;ценой.</p>
+      </div>
+
+      <div class="cat-tools">
+        <label class="search">
+          <span class="sr-only">Поиск по каталогу</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" id="q" placeholder="Например, ланолин или шампунь" autocomplete="off" enterkeyhint="search">
+        </label>
+        <div class="chips" role="group" aria-label="Линейки">
+          {{chips}}
+        </div>
+      </div>
+
+      <p class="sr-only" id="cat-status" aria-live="polite"></p>
+      <div class="cards" id="cards">
+        {{cards}}
+      </div>
+      <p class="empty" id="cat-empty" hidden>Ничего не&nbsp;нашлось. Попробуйте другое слово или выберите линейку.</p>
+      <div class="more-row">
+        <button class="btn" type="button" id="more" hidden>Показать ещё <span class="tnum" id="more-n"></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ где купить ============ -->
+  <section class="section-tight" id="buy" aria-labelledby="buy-h">
+    <div class="wrap">
+      <div class="buy-panel rise">
+        <div>
+          <p class="kicker">Где купить</p>
+          <h2 class="h2" id="buy-h">Оригинал&nbsp;— в&nbsp;наших магазинах</h2>
+          <div class="prose">
+            <p>Своего интернет-магазина у&nbsp;нас нет. Средства PixelTap продаются на&nbsp;Ozon и&nbsp;Wildberries — в&nbsp;магазинах, которые ведёт команда марки. Там быстрая доставка в&nbsp;пункт выдачи, отзывы покупателей и&nbsp;возврат по&nbsp;правилам площадки.</p>
+          </div>
+        </div>
+        <div class="stores">
+          <a class="store" href="{{store:ozon:buy}}" target="_blank" rel="noopener" data-goal="store" data-market="ozon" data-place="buy">
+            <span class="mk mk-ozon" aria-hidden="true"></span>
+            <span><span class="store-name">Ozon</span><span class="store-note">магазин PixelTap</span></span>
+            <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="store" href="{{store:wb:buy}}" target="_blank" rel="noopener" data-goal="store" data-market="wb" data-place="buy">
+            <span class="mk mk-wb" aria-hidden="true"></span>
+            <span><span class="store-name">Wildberries</span><span class="store-note">магазин PixelTap</span></span>
+            <svg class="ico ico-out" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="store-more link" href="{{store:wb2:buy}}" target="_blank" rel="noopener" data-goal="store" data-market="wb" data-place="buy-2">Второй магазин марки на&nbsp;Wildberries</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ вопросы ============ -->
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Вопросы</p>
+          <h2 class="h2" id="faq-h">Коротко о&nbsp;главном</h2>
+        </div>
+      </div>
+      <div class="faq">
+        {{faq:home}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ о марке ============ -->
+  <section class="section section-alt" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about-shot rise">
+        {{pic:shelf|(max-width: 1320px) 100vw, 1240px|Полка из розового гранита со средствами PixelTap разных линеек: ланолин, карбокситерапия, гель-масло, гель для душа, шампунь, сыворотка|lazy}}
+      </div>
+      <div class="about">
+        <div class="rise">
+          <p class="kicker">О марке</p>
+          <h2 class="h2" id="about-h">PixelTap, или <em>Пиксель Тап</em></h2>
+          <div class="prose">
+            <p>Российская марка средств ухода: от&nbsp;ланолинового крема до&nbsp;шампуня для малыша и&nbsp;набора для бровей. Мы продаём там, где вы уже покупаете, — на&nbsp;Ozon и&nbsp;Wildberries, а&nbsp;этот сайт помогает увидеть всю линейку сразу и&nbsp;выбрать своё.</p>
+          </div>
+        </div>
+        <dl class="req rise">
+          <div><dt>Марка</dt><dd>PixelTap</dd></div>
+          <div><dt>Производство</dt><dd>Россия</dd></div>
+          <!--if:email--><div><dt>Эл. почта</dt><dd><a class="link" href="mailto:{{email}}">{{email}}</a></dd></div><!--endif-->
+          <div><dt>Где купить</dt><dd>Ozon и&nbsp;Wildberries</dd></div>
+          <div><dt>Сотрудничество</dt><dd><a class="link" href="{{partner}}" target="_blank" rel="noopener" aria-label="Сотрудничество: сайт ctmcosmetics.ru, откроется в новой вкладке">ctmcosmetics.ru</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{{include:footer}}
+{{include:consent}}
+</body>
+</html>

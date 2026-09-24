@@ -1,0 +1,1073 @@
+{
+ "_": "Публичный каталог: только то, что нужно сборке. Продажи, остатки, скрытые позиции и заметки — в data/private/ (не в git).",
+ "lines": [
+  {
+   "id": "lanolin",
+   "title": "Ланолин"
+  },
+  {
+   "id": "mama",
+   "title": "Мамам и малышам"
+  },
+  {
+   "id": "carboxy",
+   "title": "Карбокси­терапия"
+  },
+  {
+   "id": "face",
+   "title": "Лицо"
+  },
+  {
+   "id": "brows",
+   "title": "Брови и ресницы"
+  },
+  {
+   "id": "hair",
+   "title": "Волосы"
+  },
+  {
+   "id": "body",
+   "title": "Тело"
+  },
+  {
+   "id": "nails",
+   "title": "Ногти"
+  }
+ ],
+ "products": [
+  {
+   "id": "lanolin-tube-15",
+   "line": "lanolin",
+   "name": "Ланолиновый крем в тубе",
+   "volume": "15 г",
+   "desc": "Крем из 100% ланолина в тубе 15 г — для кожи сосков в период кормления, губ и сухих участков кожи.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-13.wbbasket.ru/vol1960/part196005/196005420/images/big/1.webp",
+   "rank": 1,
+   "wb": {
+    "nmID": 196005420,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 1271525509,
+    "cabinet": "oz-pixeltap"
+   },
+   "hit": 1
+  },
+  {
+   "id": "lanolin-tube-50",
+   "line": "lanolin",
+   "name": "Ланолиновый крем в тубе",
+   "volume": "50 г",
+   "desc": "Крем из 100% ланолина в тубе 50 г, без воды, отдушек, красителей и консервантов. Для кожи сосков в период кормления и губ.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-13.wbbasket.ru/vol1960/part196005/196005419/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 196005419,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 1303829364,
+    "cabinet": "oz-pixeltap"
+   },
+   "hit": 2
+  },
+  {
+   "id": "lanolin-jar-15",
+   "line": "lanolin",
+   "name": "Ланолиновый крем в баночке",
+   "volume": "15 г",
+   "desc": "Ланолин в металлической баночке 15 г — для кожи сосков, губ и тела.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-04.wbbasket.ru/vol718/part71878/71878287/images/big/1.webp",
+   "rank": 3,
+   "wb": {
+    "nmID": 71878287,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 561136113,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "lanolin-tube-2x15",
+   "line": "lanolin",
+   "name": "Ланолиновый крем в тубе, 2 шт.",
+   "volume": "2 × 15 г",
+   "desc": "Две тубы по 15 г очищенного ланолина (100%) — для кожи сосков, губ и рук.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-15.wbbasket.ru/vol2202/part220282/220282659/images/big/1.webp",
+   "rank": 4,
+   "wb": {
+    "nmID": 220282659,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 1511093609,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "lanolin-jar-50",
+   "line": "lanolin",
+   "name": "Ланолиновый крем в баночке",
+   "volume": "50 г",
+   "desc": "Баночка 50 г, 100% ланолин — для кожи сосков в период кормления и других сухих, обветренных участков.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-04.wbbasket.ru/vol456/part45669/45669481/images/big/1.webp",
+   "rank": 5,
+   "wb": {
+    "nmID": 45669481,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 373645238,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "lanolin-jar-25",
+   "line": "lanolin",
+   "name": "Ланолиновый крем в баночке",
+   "volume": "25 г",
+   "desc": "Ланолин в баночке 25 г — для губ, рук, пяток и кожи сосков.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-31.wbbasket.ru/vol6147/part614757/614757639/images/big/1.webp",
+   "rank": 6,
+   "wb": {
+    "nmID": 614757639,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2975502644,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "lanolin-oil",
+   "line": "lanolin",
+   "name": "Масло для тела и волос с ланолином",
+   "volume": "100 мл",
+   "desc": "Масло для тела и волос с ланолином во флаконе с дозатором.",
+   "tags": [],
+   "img": "https://basket-12.wbbasket.ru/vol1681/part168127/168127155/images/big/1.webp",
+   "rank": 7,
+   "wb": {
+    "nmID": 168127155,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 944735164,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "lanolin-jar-2x15",
+   "line": "lanolin",
+   "name": "Ланолиновый крем в баночке, 2 шт.",
+   "volume": "2 × 15 г",
+   "desc": "Две металлические баночки по 15 г с ланолином — для кожи сосков, губ и лица.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-15.wbbasket.ru/vol2349/part234995/234995096/images/big/1.webp",
+   "rank": 8,
+   "wb": {
+    "nmID": 234995096,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 2275612525,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "lanolin-lip-balm",
+   "line": "lanolin",
+   "name": "Бальзам для губ с ланолином",
+   "volume": "15 г",
+   "desc": "Бальзам для губ из 100% ланолина в металлической баночке.",
+   "tags": [
+    "100% ланолин"
+   ],
+   "img": "https://basket-11.wbbasket.ru/vol1605/part160527/160527078/images/big/1.webp",
+   "rank": 9,
+   "wb": {
+    "nmID": 160527078,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 2275606771,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "lanolin-gift-set",
+   "line": "lanolin",
+   "name": "Набор с ланолином: два крема и масло",
+   "volume": "15 г + 50 г + 100 мл",
+   "desc": "Подарочный набор: два ланолиновых крема, 15 г и 50 г, и масло с ланолином 100 мл.",
+   "tags": [
+    "набор"
+   ],
+   "img": "https://basket-19.wbbasket.ru/vol3172/part317284/317284100/images/big/1.webp",
+   "rank": 10,
+   "wb": {
+    "nmID": 317284100,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2965675347,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "baby-shampoo-foam",
+   "line": "mama",
+   "name": "Детский шампунь-пенка",
+   "volume": "150 мл",
+   "desc": "Детский шампунь-пенка с ланолином, ромашкой, алоэ и пантенолом.",
+   "tags": [
+    "0+"
+   ],
+   "img": "https://basket-10.wbbasket.ru/vol1587/part158770/158770131/images/big/1.webp",
+   "rank": 1,
+   "wb": {
+    "nmID": 158770131,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2275593908,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "baby-diaper-cream-zinc",
+   "line": "mama",
+   "name": "Детский крем под подгузник с цинком",
+   "volume": "50 г",
+   "desc": "Крем под подгузник с оксидом цинка, ланолином и пчелиным воском, баночка 50 г.",
+   "tags": [
+    "0+"
+   ],
+   "img": "https://basket-08.wbbasket.ru/vol1144/part114463/114463859/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 114463859,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 658287183,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "baby-newborn-set-3",
+   "line": "mama",
+   "name": "Набор для новорождённого 3 в 1",
+   "volume": "50 г + 150 мл + 150 мл",
+   "desc": "Крем под подгузник с цинком 50 г, детское молочко 150 мл и гель для подмывания 150 мл.",
+   "tags": [
+    "набор",
+    "0+"
+   ],
+   "img": "https://basket-15.wbbasket.ru/vol2371/part237142/237142391/images/big/1.webp",
+   "rank": 3,
+   "wb": {
+    "nmID": 237142391,
+    "cabinet": "pixeltap"
+   }
+  },
+  {
+   "id": "baby-bath-gel",
+   "line": "mama",
+   "name": "Детский гель для купания",
+   "volume": "150 мл",
+   "desc": "Детский гель для купания и подмывания с молочной кислотой и протеинами молока, флакон с дозатором.",
+   "tags": [
+    "0+"
+   ],
+   "img": "https://basket-08.wbbasket.ru/vol1166/part116652/116652007/images/big/1.webp",
+   "rank": 4,
+   "wb": {
+    "nmID": 116652007,
+    "cabinet": "pixeltap"
+   }
+  },
+  {
+   "id": "baby-newborn-set-5",
+   "line": "mama",
+   "name": "Набор для новорождённого, 5 средств",
+   "volume": "5 предметов",
+   "desc": "Молочко, гель для подмывания, массажное масло, ланолин и крем под подгузник в одном наборе.",
+   "tags": [
+    "набор",
+    "0+"
+   ],
+   "img": "https://basket-19.wbbasket.ru/vol3132/part313264/313264170/images/big/1.webp",
+   "rank": 5,
+   "wb": {
+    "nmID": 313264170,
+    "cabinet": "beauty"
+   }
+  },
+  {
+   "id": "baby-body-milk",
+   "line": "mama",
+   "name": "Детское молочко для тела",
+   "volume": "150 мл",
+   "desc": "Детское молочко для тела с лецитином, маслом оливы и экстрактами череды и ромашки.",
+   "tags": [
+    "0+"
+   ],
+   "img": "https://basket-09.wbbasket.ru/vol1193/part119384/119384540/images/big/1.webp",
+   "rank": 6,
+   "wb": {
+    "nmID": 119384540,
+    "cabinet": "pixeltap"
+   }
+  },
+  {
+   "id": "carboxy-anti-age-set",
+   "line": "carboxy",
+   "name": "Карбокситерапия для лица, антивозрастной набор в три шага",
+   "volume": "3 × 150 мл",
+   "desc": "Три средства по 150 мл — крем-гель, гель-активатор и маска — для домашнего ухода за кожей лица и шеи.",
+   "tags": [
+    "набор"
+   ],
+   "img": "https://basket-10.wbbasket.ru/vol1532/part153241/153241393/images/big/1.webp",
+   "rank": 1,
+   "wb": {
+    "nmID": 153241393,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 1837212160,
+    "cabinet": "oz-pixeltap"
+   },
+   "hit": 3
+  },
+  {
+   "id": "carboxy-problem-skin-set",
+   "line": "carboxy",
+   "name": "Карбокситерапия для проблемной кожи, набор в три шага",
+   "volume": "3 × 150 мл",
+   "desc": "Три флакона по 150 мл — крем-гель, гель-активатор и маска — для жирной и комбинированной кожи. В составе гликолевая и молочная кислоты, пантенол и экстракт ромашки.",
+   "tags": [
+    "набор"
+   ],
+   "img": "https://basket-10.wbbasket.ru/vol1532/part153241/153241617/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 153241617,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 1842371808,
+    "cabinet": "oz-pixeltap"
+   },
+   "hit": 7
+  },
+  {
+   "id": "carboxy-anti-age-step-3",
+   "line": "carboxy",
+   "name": "Антивозрастная карбокситерапия, шаг 3: маска",
+   "volume": "150 мл",
+   "desc": "Маска — третий шаг антивозрастной карбокситерапии, флакон с дозатором, чтобы пополнить набор.",
+   "tags": [],
+   "img": "https://basket-17.wbbasket.ru/vol2809/part280942/280942115/images/big/1.webp",
+   "rank": 3,
+   "wb": {
+    "nmID": 280942115,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3167996726,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "carboxy-problem-step-3",
+   "line": "carboxy",
+   "name": "Карбокситерапия для проблемной кожи, шаг 3: маска",
+   "volume": "150 мл",
+   "desc": "Маска — третий шаг карбокситерапии для проблемной кожи, чтобы пополнить набор.",
+   "tags": [],
+   "img": "https://basket-17.wbbasket.ru/vol2809/part280941/280941694/images/big/1.webp",
+   "rank": 4,
+   "wb": {
+    "nmID": 280941694,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3167543176,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "carboxy-problem-step-1",
+   "line": "carboxy",
+   "name": "Карбокситерапия для проблемной кожи, шаг 1: крем-гель",
+   "volume": "150 мл",
+   "desc": "Крем-гель — первый шаг карбокситерапии для проблемной кожи, чтобы пополнить набор.",
+   "tags": [],
+   "img": "https://basket-17.wbbasket.ru/vol2809/part280941/280941435/images/big/1.webp",
+   "rank": 5,
+   "wb": {
+    "nmID": 280941435,
+    "cabinet": "beauty"
+   }
+  },
+  {
+   "id": "carboxy-problem-step-2",
+   "line": "carboxy",
+   "name": "Карбокситерапия для проблемной кожи, шаг 2: активатор",
+   "volume": "150 мл",
+   "desc": "Гель-активатор — второй шаг карбокситерапии для проблемной кожи, чтобы пополнить набор.",
+   "tags": [],
+   "img": "https://basket-17.wbbasket.ru/vol2809/part280941/280941643/images/big/1.webp",
+   "rank": 6,
+   "wb": {
+    "nmID": 280941643,
+    "cabinet": "beauty"
+   }
+  },
+  {
+   "id": "carboxy-anti-age-step-2",
+   "line": "carboxy",
+   "name": "Антивозрастная карбокситерапия, шаг 2: активатор",
+   "volume": "150 мл",
+   "desc": "Гель-активатор — второй шаг антивозрастной карбокситерапии, чтобы пополнить набор.",
+   "tags": [],
+   "img": "https://basket-17.wbbasket.ru/vol2809/part280942/280942058/images/big/1.webp",
+   "rank": 7,
+   "wb": {
+    "nmID": 280942058,
+    "cabinet": "beauty"
+   }
+  },
+  {
+   "id": "carboxy-anti-age-step-1",
+   "line": "carboxy",
+   "name": "Антивозрастная карбокситерапия, шаг 1: крем-гель",
+   "volume": "150 мл",
+   "desc": "Крем-гель — первый шаг антивозрастной карбокситерапии, чтобы пополнить набор.",
+   "tags": [],
+   "img": "https://basket-17.wbbasket.ru/vol2809/part280941/280941947/images/big/1.webp",
+   "rank": 8,
+   "wb": {
+    "nmID": 280941947,
+    "cabinet": "beauty"
+   }
+  },
+  {
+   "id": "ultrasonic-cleansing-gel",
+   "line": "face",
+   "name": "Гель для ультразвуковой чистки лица",
+   "volume": "150 мл",
+   "desc": "Контактный гель с молочной кислотой для ультразвуковой и механической чистки лица.",
+   "tags": [],
+   "img": "https://basket-10.wbbasket.ru/vol1587/part158774/158774328/images/big/1.webp",
+   "rank": 1,
+   "wb": {
+    "nmID": 158774328,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2470436744,
+    "cabinet": "oz-pixeltap"
+   },
+   "hit": 6
+  },
+  {
+   "id": "retinol-serum-50",
+   "line": "face",
+   "name": "Сыворотка для лица с ретинолом",
+   "volume": "50 мл",
+   "desc": "Сыворотка с ретинола пальмитатом, ниацинамидом, гиалуронатом натрия и экстрактом центеллы, флакон с дозатором. Содержит микроиглы (спикулы).",
+   "tags": [],
+   "img": "https://basket-33.wbbasket.ru/vol6902/part690282/690282047/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 690282047,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3479091469,
+    "cabinet": "oz-beauty"
+   },
+   "hit": 8
+  },
+  {
+   "id": "retinol-face-cream",
+   "line": "face",
+   "name": "Крем для лица с центеллой и скваланом",
+   "volume": "50 мл",
+   "desc": "Крем для лица с экстрактом центеллы, скваланом и бета-глюканом; содержит микроиглы (спикулы).",
+   "tags": [],
+   "img": "https://basket-32.wbbasket.ru/vol6645/part664503/664503818/images/big/1.webp",
+   "rank": 3,
+   "wb": {
+    "nmID": 664503818,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 3114948433,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "enzyme-powder",
+   "line": "face",
+   "name": "Энзимная пудра для умывания",
+   "volume": "70 г / 60 г",
+   "desc": "Энзимная пудра для умывания лица с каолином и папаином; с водой превращается в пену. На Wildberries — банка 70 г, на Ozon — 60 г.",
+   "tags": [],
+   "img": "https://basket-12.wbbasket.ru/vol1720/part172000/172000924/images/big/1.webp",
+   "rank": 4,
+   "wb": {
+    "nmID": 172000924,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3882016367,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "face-foam-hyaluronic",
+   "line": "face",
+   "name": "Пенка для умывания с гиалуроновой кислотой",
+   "volume": "150 мл",
+   "desc": "Пенка для умывания с гиалуроновой кислотой и экстрактами лимона, петрушки, солодки и бадана.",
+   "tags": [],
+   "img": "https://basket-19.wbbasket.ru/vol3118/part311869/311869328/images/big/1.webp",
+   "rank": 5,
+   "wb": {
+    "nmID": 311869328,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 664012665,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "peptide-serum-50",
+   "line": "face",
+   "name": "Сыворотка для лица с пептидом",
+   "volume": "50 мл",
+   "desc": "Сыворотка с пептидом и гиалуроновой кислотой трёх молекулярных масс, с экстрактом центеллы; флакон с дозатором.",
+   "tags": [],
+   "img": "https://basket-33.wbbasket.ru/vol6902/part690282/690282363/images/big/1.webp",
+   "rank": 6,
+   "wb": {
+    "nmID": 690282363,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3479016076,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "red-acid-peel",
+   "line": "face",
+   "name": "Красный кислотный пилинг для лица",
+   "volume": "50 мл",
+   "desc": "Кислотный крем-пилинг для лица с альфа- и бета-гидроксикислотами, в том числе салициловой. Не для очень чувствительной кожи; 18+.",
+   "tags": [],
+   "img": "https://basket-41.wbbasket.ru/vol9990/part999073/999073323/images/big/1.webp",
+   "rank": 7,
+   "wb": {
+    "nmID": 999073323,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 3881995178,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "azelaic-peel",
+   "line": "face",
+   "name": "Азелаиновый крем-пилинг для лица",
+   "volume": "50 мл",
+   "desc": "Крем-пилинг для лица с азелаиновой и гликолевой кислотами, пантенолом и аллантоином.",
+   "tags": [],
+   "img": "https://basket-41.wbbasket.ru/vol10240/part1024025/1024025347/images/big/1.webp",
+   "rank": 8,
+   "wb": {
+    "nmID": 1024025347,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3882009257,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "retinol-serum-30",
+   "line": "face",
+   "name": "Сыворотка с ретинолом во флаконе с пипеткой",
+   "volume": "30 мл",
+   "desc": "Сыворотка для лица с ретинола пальмитатом, экстрактом центеллы, гиалуронатом и алоэ вера.",
+   "tags": [],
+   "img": "https://basket-11.wbbasket.ru/vol1625/part162575/162575895/images/big/1.webp",
+   "rank": 9,
+   "wb": {
+    "nmID": 162575895,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2275597642,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "eye-serum",
+   "line": "face",
+   "name": "Сыворотка для кожи вокруг глаз",
+   "volume": "30 мл",
+   "desc": "Сыворотка для кожи вокруг глаз с ниацинамидом, морским коллагеном, пептидным комплексом и экстрактом конского каштана; флакон с пипеткой.",
+   "tags": [],
+   "img": "https://basket-12.wbbasket.ru/vol1695/part169512/169512060/images/big/1.webp",
+   "rank": 10,
+   "wb": {
+    "nmID": 169512060,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2275597645,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "serum-duo-set",
+   "line": "face",
+   "name": "Набор сывороток: с ретинолом и для кожи вокруг глаз",
+   "volume": "2 × 30 мл",
+   "desc": "Две сыворотки в наборе: с ретинолом для лица и для кожи вокруг глаз.",
+   "tags": [
+    "набор"
+   ],
+   "img": "https://basket-19.wbbasket.ru/vol3138/part313808/313808133/images/big/1.webp",
+   "rank": 11,
+   "wb": {
+    "nmID": 313808133,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 1842731935,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "hydrophilic-oil",
+   "line": "face",
+   "name": "Гидрофильное масло для снятия макияжа",
+   "volume": "100 мл",
+   "desc": "Гидрофильное масло для снятия макияжа, в том числе водостойкого, с маслами макадамии, виноградной косточки и рисовых отрубей.",
+   "tags": [],
+   "img": "https://basket-17.wbbasket.ru/vol2623/part262380/262380196/images/big/1.webp",
+   "rank": 12,
+   "wb": {
+    "nmID": 262380196,
+    "cabinet": "pixeltap"
+   }
+  },
+  {
+   "id": "brow-lamination-set",
+   "line": "brows",
+   "name": "Набор для ламинирования бровей и ресниц",
+   "volume": "3 × 10 мл",
+   "desc": "Три состава по 10 мл для ламинирования бровей и ресниц дома: перманентный гель, крем-нейтрализатор и крем с маслом арганы.",
+   "tags": [],
+   "img": "https://basket-06.wbbasket.ru/vol1033/part103361/103361991/images/big/1.webp",
+   "rank": 1,
+   "wb": {
+    "nmID": 103361991,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 487498438,
+    "cabinet": "oz-pixeltap"
+   },
+   "hit": 4
+  },
+  {
+   "id": "green-soap-500",
+   "line": "brows",
+   "name": "Зелёное мыло, концентрат",
+   "volume": "500 мл",
+   "desc": "Концентрат зелёного мыла для мастеров тату, татуажа и перманентного макияжа.",
+   "tags": [
+    "для мастеров"
+   ],
+   "img": "https://basket-02.wbbasket.ru/vol172/part17274/17274771/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 17274771,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 373585729,
+    "cabinet": "oz-pixeltap"
+   },
+   "hit": 5
+  },
+  {
+   "id": "green-soap-foam-150",
+   "line": "brows",
+   "name": "Мыло-пенка для зоны перманентного макияжа",
+   "volume": "150 мл",
+   "desc": "Мыло-пенка для очищения кожи перед процедурой; для мастеров перманентного макияжа, тату и ламинирования бровей. Пенный дозатор.",
+   "tags": [
+    "для мастеров"
+   ],
+   "img": "https://basket-02.wbbasket.ru/vol172/part17238/17238628/images/big/1.webp",
+   "rank": 3,
+   "wb": {
+    "nmID": 17238628,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 373576157,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "brow-styling-set-coarse",
+   "line": "brows",
+   "name": "Набор для долговременной укладки жёстких бровей",
+   "volume": "3 × 10 мл",
+   "desc": "Три состава для долговременной укладки жёстких бровей: перманентный гель, крем-нейтрализатор и крем-масло с арганой.",
+   "tags": [],
+   "img": "https://basket-36.wbbasket.ru/vol7931/part793100/793100380/images/big/1.webp",
+   "rank": 4,
+   "wb": {
+    "nmID": 793100380,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3351281094,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "brow-lash-shampoo",
+   "line": "brows",
+   "name": "Шампунь для бровей и ресниц",
+   "volume": "50 мл",
+   "desc": "Шампунь для очищения бровей и ресниц перед окрашиванием и ламинированием.",
+   "tags": [],
+   "img": "https://basket-03.wbbasket.ru/vol308/part30861/30861863/images/big/1.webp",
+   "rank": 5,
+   "wb": {
+    "nmID": 30861863,
+    "cabinet": "pixeltap"
+   }
+  },
+  {
+   "id": "curl-mousse",
+   "line": "hair",
+   "name": "Мусс для укладки кудрявых волос",
+   "volume": "150 мл",
+   "desc": "Мусс-пенка для укладки кудрявых волос с аргановым маслом; помогает держать форму локонов.",
+   "tags": [],
+   "img": "https://basket-25.wbbasket.ru/vol4438/part443858/443858662/images/big/1.webp",
+   "rank": 1,
+   "wb": {
+    "nmID": 443858662,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 2228060893,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "shampoo-balm-set",
+   "line": "hair",
+   "name": "Набор для волос: шампунь и бальзам",
+   "volume": "2 × 250 мл",
+   "desc": "Шампунь и бальзам по 250 мл с маслами кедра, макадамии, виноградной косточки и усьмы.",
+   "tags": [
+    "набор"
+   ],
+   "img": "https://basket-13.wbbasket.ru/vol2028/part202895/202895707/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 202895707,
+    "cabinet": "beauty"
+   }
+  },
+  {
+   "id": "curl-texture-spray",
+   "line": "hair",
+   "name": "Текстурирующий спрей для кудрявых волос",
+   "volume": "150 мл",
+   "desc": "Солевой спрей для объёма и укладки кудрявых волос с экстрактами моринги и полыни.",
+   "tags": [],
+   "img": "https://basket-25.wbbasket.ru/vol4406/part440695/440695159/images/big/1.webp",
+   "rank": 3,
+   "wb": {
+    "nmID": 440695159,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2229020872,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "repair-shampoo",
+   "line": "hair",
+   "name": "Восстанавливающий шампунь для волос",
+   "volume": "250 мл",
+   "desc": "Шампунь для волос с комплексом масел в тубе 250 мл.",
+   "tags": [],
+   "img": "https://basket-41.wbbasket.ru/vol10224/part1022402/1022402402/images/big/1.webp",
+   "rank": 4,
+   "ozon": {
+    "sku": 2948425800,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "scalp-enzyme-peel",
+   "line": "hair",
+   "name": "Энзимный пилинг для кожи головы",
+   "volume": "150 мл",
+   "desc": "Энзимный пилинг-скатка для кожи головы с бромелайном, молочной кислотой, ментолом и экстрактом розмарина.",
+   "tags": [],
+   "img": "https://basket-13.wbbasket.ru/vol2037/part203739/203739600/images/big/1.webp",
+   "rank": 5,
+   "wb": {
+    "nmID": 203739600,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3595472187,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "red-pepper-oil",
+   "line": "hair",
+   "name": "Масло с красным перцем для кожи головы и бороды",
+   "volume": "100 мл",
+   "desc": "Масло для кожи головы и бороды с экстрактом красного перца, вазелиновым и миндальным маслами, маслом виноградной косточки и эфирными маслами апельсина и грейпфрута.",
+   "tags": [],
+   "img": "https://basket-39.wbbasket.ru/vol8908/part890863/890863679/images/big/1.webp",
+   "rank": 6,
+   "wb": {
+    "nmID": 890863679,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 3641908892,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "leave-in-hair-oil",
+   "line": "hair",
+   "name": "Несмываемое масло для волос",
+   "volume": "100 мл",
+   "desc": "Несмываемое масло для кончиков волос с маслами инка-инчи, жожоба и виноградной косточки.",
+   "tags": [],
+   "img": "https://basket-21.wbbasket.ru/vol3511/part351172/351172899/images/big/1.webp",
+   "rank": 7,
+   "wb": {
+    "nmID": 351172899,
+    "cabinet": "pixeltap"
+   }
+  },
+  {
+   "id": "hair-spray-17in1",
+   "line": "hair",
+   "name": "Несмываемый спрей для волос 17 в 1",
+   "volume": "250 мл",
+   "desc": "Несмываемый спрей с протеинами и пантенолом: защита при укладке феном и лёгкое расчёсывание.",
+   "tags": [],
+   "img": "https://basket-06.wbbasket.ru/vol1033/part103388/103388145/images/big/1.webp",
+   "rank": 8,
+   "wb": {
+    "nmID": 103388145,
+    "cabinet": "pixeltap"
+   }
+  },
+  {
+   "id": "scalp-acid-peel",
+   "line": "hair",
+   "name": "Кислотный пилинг для кожи головы",
+   "volume": "100 мл",
+   "desc": "Пилинг-скатка для кожи головы с молочной и яблочной кислотами и ментолом.",
+   "tags": [],
+   "img": "https://basket-13.wbbasket.ru/vol2037/part203739/203739601/images/big/1.webp",
+   "rank": 9,
+   "wb": {
+    "nmID": 203739601,
+    "cabinet": "beauty"
+   }
+  },
+  {
+   "id": "shower-oil-gel",
+   "line": "body",
+   "name": "Гель-масло для душа",
+   "volume": "460 мл",
+   "desc": "Гель-масло для душа и ванны с маслами ши, кокоса и оливы, пантенолом и алоэ вера.",
+   "tags": [],
+   "img": "https://basket-12.wbbasket.ru/vol1695/part169505/169505375/images/big/1.webp",
+   "rank": 1,
+   "wb": {
+    "nmID": 169505375,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2470498532,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "body-milk",
+   "line": "body",
+   "name": "Молочко для тела с маслом оливы",
+   "volume": "250 мл",
+   "desc": "Увлажняющее молочко для тела с маслом оливы и витаминами А и Е.",
+   "tags": [],
+   "img": "https://basket-37.wbbasket.ru/vol8094/part809436/809436904/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 809436904,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 3507347506,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "foot-cream-urea",
+   "line": "body",
+   "name": "Крем-воск для ног с мочевиной",
+   "volume": "50 г",
+   "desc": "Крем-воск для ног с мочевиной, пчелиным воском и маслами ши и кокоса — для сухой кожи пяток, рук и тела.",
+   "tags": [],
+   "img": "https://basket-14.wbbasket.ru/vol2187/part218719/218719726/images/big/1.webp",
+   "rank": 3,
+   "wb": {
+    "nmID": 218719726,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 1474102606,
+    "cabinet": "oz-beauty"
+   }
+  },
+  {
+   "id": "shower-gel-tobacco-vanilla",
+   "line": "body",
+   "name": "Гель для душа «Табак и ваниль»",
+   "volume": "460 мл",
+   "desc": "Парфюмированный гель для душа с ароматом табака и ванили и маслами ши, кокоса и оливы.",
+   "tags": [],
+   "img": "https://basket-28.wbbasket.ru/vol5370/part537088/537088884/images/big/1.webp",
+   "rank": 4,
+   "wb": {
+    "nmID": 537088884,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2657960132,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "body-gift-set",
+   "line": "body",
+   "name": "Набор для тела: гель-масло для душа и молочко",
+   "volume": "460 мл + 250 мл",
+   "desc": "Гель-масло для душа 460 мл и молочко для тела 250 мл в подарочной упаковке.",
+   "tags": [
+    "набор"
+   ],
+   "img": "https://basket-37.wbbasket.ru/vol8114/part811445/811445896/images/big/1.webp",
+   "rank": 5,
+   "wb": {
+    "nmID": 811445896,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 3480014070,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "shower-gel-black-pepper",
+   "line": "body",
+   "name": "Гель для душа «Чёрный перец»",
+   "volume": "460 мл",
+   "desc": "Парфюмированный гель для душа с ароматом чёрного перца и маслами ши, кокоса и оливы.",
+   "tags": [],
+   "img": "https://basket-28.wbbasket.ru/vol5370/part537088/537088886/images/big/1.webp",
+   "rank": 6,
+   "wb": {
+    "nmID": 537088886,
+    "cabinet": "beauty"
+   },
+   "ozon": {
+    "sku": 2657976262,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "cuticle-remover",
+   "line": "nails",
+   "name": "Средство для удаления кутикулы",
+   "volume": "30 мл",
+   "desc": "Гелевое средство для размягчения и удаления кутикулы при маникюре.",
+   "tags": [],
+   "img": "https://basket-14.wbbasket.ru/vol2127/part212785/212785521/images/big/1.webp",
+   "rank": 1,
+   "ozon": {
+    "sku": 1451229219,
+    "cabinet": "oz-pixeltap"
+   }
+  },
+  {
+   "id": "nail-serum",
+   "line": "nails",
+   "name": "Сыворотка для ногтей и кутикулы с коллагеном",
+   "volume": "15 мл",
+   "desc": "Сыворотка для ногтей и кутикулы с коллагеном и маслом чайного дерева, флакон с пипеткой.",
+   "tags": [],
+   "img": "https://basket-20.wbbasket.ru/vol3484/part348432/348432839/images/big/1.webp",
+   "rank": 2,
+   "wb": {
+    "nmID": 348432839,
+    "cabinet": "pixeltap"
+   },
+   "ozon": {
+    "sku": 3185111147,
+    "cabinet": "oz-pixeltap"
+   }
+  }
+ ]
+}

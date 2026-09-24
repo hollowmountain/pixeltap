@@ -1,0 +1,962 @@
+{
+ "hero-tall": {
+  "dir": "img",
+  "ratio": [
+   1792,
+   2240
+  ],
+  "w": [
+   640,
+   960,
+   1280
+  ]
+ },
+ "hero-wide": {
+  "dir": "img",
+  "ratio": [
+   2688,
+   1152
+  ],
+  "w": [
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hit/brow-lamination-set": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "brow-lamination-set-2a931289",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "hit/carboxy-anti-age-set": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-anti-age-set-b46c2051",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "hit/carboxy-problem-skin-set": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-problem-skin-set-4f102186",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "hit/green-soap-500": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "green-soap-500-5a712ab7",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "hit/lanolin-tube-15": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-tube-15-561b1e89",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "hit/lanolin-tube-50": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-tube-50-203449ff",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "hit/retinol-serum-50": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "retinol-serum-50-39d78809",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "hit/ultrasonic-cleansing-gel": {
+  "dir": "img/hit",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "ultrasonic-cleansing-gel-7b35baac",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "lanolin-hero": {
+  "dir": "img",
+  "ratio": [
+   1792,
+   2240
+  ],
+  "w": [
+   640,
+   960,
+   1400
+  ]
+ },
+ "lanolin-origin": {
+  "dir": "img",
+  "ratio": [
+   2528,
+   1696
+  ],
+  "w": [
+   800,
+   1200,
+   1800
+  ]
+ },
+ "maternity": {
+  "dir": "img",
+  "ratio": [
+   2048,
+   1360
+  ],
+  "w": [
+   800,
+   1200,
+   1800
+  ]
+ },
+ "p/azelaic-peel": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "azelaic-peel-0672b9a1",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/baby-bath-gel": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "baby-bath-gel-8c0e5a09",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/baby-body-milk": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "baby-body-milk-53a802d8",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/baby-diaper-cream-zinc": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "baby-diaper-cream-zinc-d908a868",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/baby-newborn-set-3": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "baby-newborn-set-3-0e844888",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/baby-newborn-set-5": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "baby-newborn-set-5-7418f65b",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/baby-shampoo-foam": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "baby-shampoo-foam-35f71e5a",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/body-gift-set": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "body-gift-set-ce46355e",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/body-milk": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "body-milk-471bf348",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/brow-lamination-set": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "brow-lamination-set-bd9491ac",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/brow-lash-shampoo": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "brow-lash-shampoo-5047e265",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/brow-styling-set-coarse": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "brow-styling-set-coarse-9b1cda5d",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-anti-age-set": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-anti-age-set-0d72d695",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-anti-age-step-1": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-anti-age-step-1-d4db3e1a",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-anti-age-step-2": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-anti-age-step-2-2019b7ef",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-anti-age-step-3": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-anti-age-step-3-842ee2b6",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-problem-skin-set": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-problem-skin-set-437f2bcd",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-problem-step-1": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-problem-step-1-8eaea537",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-problem-step-2": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-problem-step-2-d68b2b7b",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/carboxy-problem-step-3": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "carboxy-problem-step-3-285434b7",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/curl-mousse": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "curl-mousse-c92e164e",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/curl-texture-spray": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "curl-texture-spray-bd5e89d9",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/cuticle-remover": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "cuticle-remover-55e3a7d6",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/enzyme-powder": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "enzyme-powder-7db4fedc",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/eye-serum": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "eye-serum-8b9d729e",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/face-foam-hyaluronic": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "face-foam-hyaluronic-04bf27c7",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/foot-cream-urea": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "foot-cream-urea-eaeb44dd",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/green-soap-500": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "green-soap-500-682791ed",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/green-soap-foam-150": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "green-soap-foam-150-ef69c4a1",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/hair-spray-17in1": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "hair-spray-17in1-b6879ba0",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/hydrophilic-oil": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "hydrophilic-oil-62a8bb6d",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-gift-set": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-gift-set-1645da44",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-jar-15": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-jar-15-097c5fac",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-jar-25": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-jar-25-7961000d",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-jar-2x15": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-jar-2x15-9621c4c2",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-jar-50": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-jar-50-684e7282",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-lip-balm": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-lip-balm-0743343d",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-oil": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-oil-df63bab4",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-tube-15": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-tube-15-dcfc33fe",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-tube-2x15": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-tube-2x15-8f4cab87",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/lanolin-tube-50": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "lanolin-tube-50-18aea57d",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/leave-in-hair-oil": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "leave-in-hair-oil-1feec932",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/nail-serum": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "nail-serum-90f1893e",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/peptide-serum-50": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "peptide-serum-50-ac9a976c",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/red-acid-peel": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "red-acid-peel-97627d8a",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/red-pepper-oil": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "red-pepper-oil-de9e4afd",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/repair-shampoo": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "repair-shampoo-19e28a90",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/retinol-face-cream": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "retinol-face-cream-f1cc5239",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/retinol-serum-30": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "retinol-serum-30-f87b3983",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/retinol-serum-50": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "retinol-serum-50-ed3fa088",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/scalp-acid-peel": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "scalp-acid-peel-8a03dfe0",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/scalp-enzyme-peel": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "scalp-enzyme-peel-9590cf91",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/serum-duo-set": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "serum-duo-set-ea8665c6",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/shampoo-balm-set": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "shampoo-balm-set-bb8c57b2",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/shower-gel-black-pepper": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "shower-gel-black-pepper-e3ae8c6c",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/shower-gel-tobacco-vanilla": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "shower-gel-tobacco-vanilla-48b2b973",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/shower-oil-gel": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "shower-oil-gel-ebac0aed",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "p/ultrasonic-cleansing-gel": {
+  "dir": "img/p",
+  "ratio": [
+   3,
+   4
+  ],
+  "stem": "ultrasonic-cleansing-gel-be8f4b3c",
+  "w": [
+   300,
+   600
+  ]
+ },
+ "shelf": {
+  "dir": "img",
+  "ratio": [
+   2688,
+   1152
+  ],
+  "w": [
+   1200,
+   1800,
+   2600
+  ]
+ },
+ "tile-body": {
+  "dir": "img",
+  "ratio": [
+   1792,
+   2240
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ },
+ "tile-brows": {
+  "dir": "img",
+  "ratio": [
+   1792,
+   2240
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ },
+ "tile-carboxy": {
+  "dir": "img",
+  "ratio": [
+   1856,
+   2304
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ },
+ "tile-face": {
+  "dir": "img",
+  "ratio": [
+   1792,
+   2240
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ },
+ "tile-hair": {
+  "dir": "img",
+  "ratio": [
+   1856,
+   2304
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ },
+ "tile-lanolin": {
+  "dir": "img",
+  "ratio": [
+   1856,
+   2304
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ },
+ "tile-mama": {
+  "dir": "img",
+  "ratio": [
+   1792,
+   2240
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ },
+ "tile-nails": {
+  "dir": "img",
+  "ratio": [
+   1856,
+   2304
+  ],
+  "w": [
+   480,
+   800,
+   1200
+  ]
+ }
+}

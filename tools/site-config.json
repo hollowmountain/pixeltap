@@ -1,0 +1,56 @@
+{
+  "_": "Настройки сборки сайта. Правится руками; build.py читает при каждом запуске.",
+
+  "origin": "https://pixeltapi.ru",
+  "host": "pixeltapi.ru",
+
+  "_preview": "Предпросмотр на GitHub Pages (сборка --pages, выкладка tools/publish-pages.sh). Закрыт от поисковиков.",
+  "preview": { "origin": "https://hollowmountain.github.io/pixeltap" },
+
+  "_partner_url": "Ссылка «Сотрудничество» — наш второй сайт.",
+  "partner_url": "https://ctmcosmetics.ru/",
+
+  "_email": "Почта для обращений. null — почты на сайте нет вообще (решение владельца 24.09.2026). Если задать — появится в подвале, FAQ и security.txt.",
+  "email": null,
+
+  "_metrika_id": "Номер счётчика Яндекс Метрики. null — счётчика и окна о cookie на сайте нет вообще. Перед включением — уведомление в РКН (см. DEPLOY.md).",
+  "metrika_id": null,
+
+  "_verify": "Коды подтверждения сайта в Яндекс Вебмастере и Google Search Console — только мета-тегом: HTML-файл подтверждения сотрёт первая же выкладка.",
+  "verify": { "yandex": null, "google": null },
+
+  "policy_date": "24.09.2026",
+
+  "stores": {
+    "_": "Кнопки «Магазин на …». WB: основная витрина — seller 104569 (там 36 товаров и почти все продажи), вторая — 232922. Ozon: адрес дан владельцем, какой это кабинет — сверить в личном кабинете.",
+    "ozon": "https://www.ozon.ru/seller/pixeltap/",
+    "wb": "https://www.wildberries.ru/seller/104569",
+    "wb2": "https://www.wildberries.ru/seller/232922"
+  },
+
+  "utm": {
+    "_": "Метки для отчётов «Внешний трафик» в кабинетах. WB: utm_campaign = {supplierID}-id-{название}. Ozon: префикс vendor_org_{ID организации}, ID берётся в кабинете; пока null — метка без префикса.",
+    "source": "pixeltapi",
+    "medium": "site",
+    "wb_supplier": { "pixeltap": 232922, "beauty": 104569 },
+    "ozon_org": { "oz-pixeltap": null, "oz-beauty": null }
+  },
+
+  "mama_checklist": [
+    { "id": "lanolin-tube-15", "note": "для ухода за сосками и губами" },
+    { "id": "lanolin-tube-2x15", "note": "одна в роддом, вторая дома" },
+    { "id": "baby-newborn-set-3", "note": "крем под подгузник, молочко и гель для подмывания" },
+    { "id": "baby-diaper-cream-zinc", "note": "для кожи под подгузником" }
+  ],
+
+  "line_notes": {
+    "lanolin": "Кремы, бальзам и масло с ланолином",
+    "mama": "От роддома до первого купания",
+    "carboxy": "Уход за лицом дома в три шага",
+    "face": "Умывание, пилинги, сыворотки",
+    "brows": "Ламинирование и уход — дома и у мастера",
+    "hair": "Шампуни, масла, укладка",
+    "body": "Гели для душа, молочко, уход",
+    "nails": "Сыворотка и уход за кутикулой"
+  }
+}
