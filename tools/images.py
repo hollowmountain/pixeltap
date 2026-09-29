@@ -42,7 +42,6 @@ SCENES = {
     "hero-wide":      [1280, 1920, 2560],
     "hero-tall":      [640, 960, 1280],
     "tile-lanolin":   [480, 800, 1200],
-    "tile-mama":      [480, 800, 1200],
     "tile-carboxy":   [480, 800, 1200],
     "tile-face":      [480, 800, 1200],
     "tile-brows":     [480, 800, 1200],

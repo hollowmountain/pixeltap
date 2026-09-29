@@ -167,78 +167,6 @@
    600
   ]
  },
- "p/baby-bath-gel": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "baby-bath-gel-8c0e5a09",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/baby-body-milk": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "baby-body-milk-53a802d8",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/baby-diaper-cream-zinc": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "baby-diaper-cream-zinc-d908a868",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/baby-newborn-set-3": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "baby-newborn-set-3-0e844888",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/baby-newborn-set-5": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "baby-newborn-set-5-7418f65b",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/baby-shampoo-foam": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "baby-shampoo-foam-35f71e5a",
-  "w": [
-   300,
-   600
-  ]
- },
  "p/body-gift-set": {
   "dir": "img/p",
   "ratio": [
@@ -437,7 +365,7 @@
    3,
    4
   ],
-  "stem": "enzyme-powder-7db4fedc",
+  "stem": "enzyme-powder-6a572dca",
   "w": [
    300,
    600
@@ -498,30 +426,6 @@
    4
   ],
   "stem": "green-soap-foam-150-ef69c4a1",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/hair-spray-17in1": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "hair-spray-17in1-b6879ba0",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/hydrophilic-oil": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "hydrophilic-oil-62a8bb6d",
   "w": [
    300,
    600
@@ -647,18 +551,6 @@
    600
   ]
  },
- "p/leave-in-hair-oil": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "leave-in-hair-oil-1feec932",
-  "w": [
-   300,
-   600
-  ]
- },
  "p/nail-serum": {
   "dir": "img/p",
   "ratio": [
@@ -750,18 +642,6 @@
    4
   ],
   "stem": "retinol-serum-50-ed3fa088",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/scalp-acid-peel": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "scalp-acid-peel-8a03dfe0",
   "w": [
    300,
    600
@@ -928,18 +808,6 @@
   "ratio": [
    1856,
    2304
-  ],
-  "w": [
-   480,
-   800,
-   1200
-  ]
- },
- "tile-mama": {
-  "dir": "img",
-  "ratio": [
-   1792,
-   2240
   ],
   "w": [
    480,

@@ -6,24 +6,9 @@
 
 /* ---------- шрифты ----------
    Свои файлы, а не Google Fonts: IP посетителя не уходит за рубеж,
-   и у всех трёх гарнитур есть кириллица (у прежней Archivo её не было —
-   русский текст рисовался системным шрифтом). */
-@font-face {
-  font-family: "Unbounded";
-  font-style: normal;
-  font-weight: 300 900;
-  font-display: swap;
-  src: url("../fonts/unbounded-cyrillic.woff2") format("woff2");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-@font-face {
-  font-family: "Unbounded";
-  font-style: normal;
-  font-weight: 300 900;
-  font-display: swap;
-  src: url("../fonts/unbounded-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+   и у обеих гарнитур есть кириллица (у прежней Archivo её не было —
+   русский текст рисовался системным шрифтом). Заголовки — тот же Onest,
+   что и текст, только жирнее. */
 @font-face {
   font-family: "Onest";
   font-style: normal;
@@ -95,7 +80,7 @@
   --shadow-1: 0 1px 2px rgba(43, 11, 27, .05), 0 10px 30px -16px rgba(43, 11, 27, .22);
   --shadow-2: 0 2px 4px rgba(43, 11, 27, .06), 0 24px 48px -24px rgba(43, 11, 27, .35);
 
-  --f-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-display: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --f-text: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --f-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
@@ -136,7 +121,11 @@ body {
   /* clip, а не hidden: hidden делает body контейнером прокрутки,
      и липкая шапка перестаёт липнуть. */
   overflow-x: clip;
+  /* Подвал всегда внизу окна, даже на короткой странице (404). */
+  display: flex;
+  flex-direction: column;
 }
+body > main { flex: 1 0 auto; }
 
 img, picture, svg { display: block; max-width: 100%; }
 img { height: auto; }
@@ -207,7 +196,7 @@ button { cursor: pointer; }
   font-weight: 600;
   letter-spacing: -.015em;
 }
-/* Курсив антиквы внутри заголовков — одно слово, не больше. Широкий
+/* Курсив антиквы внутри заголовков — одно слово, не больше. Плотный
    гротеск задаёт характер, курсив добавляет мягкость ухода. */
 .h1 em, .h2 em {
   font-family: var(--f-serif);
@@ -437,7 +426,13 @@ a:hover > .ico-out { transform: translate(2px, -2px); }
 .hero-in { padding-block: 56px 64px; }
 .hero :focus-visible { outline-color: var(--ink); }
 .hero-say { max-width: min(36vw, 34rem); }
-@media (min-width: 1600px) { .hero-say { max-width: min(36vw, 40rem); } }
+@media (min-width: 1600px) {
+  .hero-say { max-width: min(36vw, 40rem); }
+  /* Колонка текста уезжает вправо вместе с обёрткой, а банка на снимке
+     стоит на доле ширины кадра: с ~1750 px кнопки в одну строку на неё
+     наезжают. Шире 1600 px кнопки встают друг под другом. */
+  .hero-cta { max-width: 26rem; }
+}
 @media (min-width: 1181px) { .hero { min-height: 620px; } }
 .hero .kicker { margin-bottom: 16px; }
 .hero .h1 {
@@ -612,8 +607,18 @@ a:hover > .ico-out { transform: translate(2px, -2px); }
 .tile-meta .ico { width: 18px; height: 18px; transition: transform .25s var(--ease); }
 .tile:hover .tile-meta .ico { transform: translateX(4px); }
 .tile-wide { grid-column: span 2; aspect-ratio: auto; }
+/* «Весь каталог» добивает неполный ряд: без снимка, в цвет марки. */
+.tile-all { background: var(--rose-ink); transition: background-color .25s var(--ease); }
+.tile-all::after { content: none; }
+.tile-all .tile-body { background: none; padding-top: 18px; }
+.tile-all:hover { background: var(--rose); }
 
 @media (max-width: 1000px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+/* На узком телефоне подпись бывает выше плитки 4:5 (с aspect-ratio
+   плитка не растёт): 4:5 остаётся минимумом, выше — по тексту. */
+@media (max-width: 400px) {
+  .tile { aspect-ratio: auto; min-height: calc((100vw - 2 * var(--gutter) - 10px) / 2 * 1.25); }
+}
 @media (max-width: 520px) {
   .tiles { gap: 10px; }
   .tile-body { padding: 38px 12px 12px; }
@@ -697,7 +702,7 @@ a:hover > .ico-out { transform: translate(2px, -2px); }
 .tone-lanolin .kicker { color: #8A5A00; }
 .tone-violet .kicker { color: var(--violet); }
 
-/* ---------- мамам и малышам: список «в роддом» ---------- */
+/* ---------- мамам: список «в роддом» ---------- */
 .checklist {
   margin-top: 26px;
   padding: 0;
@@ -1118,6 +1123,7 @@ a:hover > .ico-out { transform: translate(2px, -2px); }
 .doc ul { padding-left: 1.2em; margin-top: .5em; }
 .doc ul + p { margin-top: .8em; }
 .doc li + li { margin-top: .35em; }
+.doc .crumbs li { margin-top: 0; }
 .doc p + p { margin-top: .8em; }
 
 .crumbs { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin-bottom: 22px; list-style: none; font-size: .875rem; color: var(--ink-2); }
@@ -1144,6 +1150,7 @@ a:hover > .ico-out { transform: translate(2px, -2px); }
 
 .nf { min-height: 60vh; display: grid; place-items: center; text-align: center; padding-block: 80px; }
 .nf .h1 { margin: 12px 0 18px; }
+.nf .lede { margin-inline: auto; }
 .nf .hero-cta { justify-content: center; margin-top: 28px; }
 
 /* ---------- движение ----------

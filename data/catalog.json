@@ -6,10 +6,6 @@
    "title": "Ланолин"
   },
   {
-   "id": "mama",
-   "title": "Мамам и малышам"
-  },
-  {
    "id": "carboxy",
    "title": "Карбокси­терапия"
   },
@@ -236,112 +232,6 @@
    }
   },
   {
-   "id": "baby-shampoo-foam",
-   "line": "mama",
-   "name": "Детский шампунь-пенка",
-   "volume": "150 мл",
-   "desc": "Детский шампунь-пенка с ланолином, ромашкой, алоэ и пантенолом.",
-   "tags": [
-    "0+"
-   ],
-   "img": "https://basket-10.wbbasket.ru/vol1587/part158770/158770131/images/big/1.webp",
-   "rank": 1,
-   "wb": {
-    "nmID": 158770131,
-    "cabinet": "beauty"
-   },
-   "ozon": {
-    "sku": 2275593908,
-    "cabinet": "oz-pixeltap"
-   }
-  },
-  {
-   "id": "baby-diaper-cream-zinc",
-   "line": "mama",
-   "name": "Детский крем под подгузник с цинком",
-   "volume": "50 г",
-   "desc": "Крем под подгузник с оксидом цинка, ланолином и пчелиным воском, баночка 50 г.",
-   "tags": [
-    "0+"
-   ],
-   "img": "https://basket-08.wbbasket.ru/vol1144/part114463/114463859/images/big/1.webp",
-   "rank": 2,
-   "wb": {
-    "nmID": 114463859,
-    "cabinet": "pixeltap"
-   },
-   "ozon": {
-    "sku": 658287183,
-    "cabinet": "oz-beauty"
-   }
-  },
-  {
-   "id": "baby-newborn-set-3",
-   "line": "mama",
-   "name": "Набор для новорождённого 3 в 1",
-   "volume": "50 г + 150 мл + 150 мл",
-   "desc": "Крем под подгузник с цинком 50 г, детское молочко 150 мл и гель для подмывания 150 мл.",
-   "tags": [
-    "набор",
-    "0+"
-   ],
-   "img": "https://basket-15.wbbasket.ru/vol2371/part237142/237142391/images/big/1.webp",
-   "rank": 3,
-   "wb": {
-    "nmID": 237142391,
-    "cabinet": "pixeltap"
-   }
-  },
-  {
-   "id": "baby-bath-gel",
-   "line": "mama",
-   "name": "Детский гель для купания",
-   "volume": "150 мл",
-   "desc": "Детский гель для купания и подмывания с молочной кислотой и протеинами молока, флакон с дозатором.",
-   "tags": [
-    "0+"
-   ],
-   "img": "https://basket-08.wbbasket.ru/vol1166/part116652/116652007/images/big/1.webp",
-   "rank": 4,
-   "wb": {
-    "nmID": 116652007,
-    "cabinet": "pixeltap"
-   }
-  },
-  {
-   "id": "baby-newborn-set-5",
-   "line": "mama",
-   "name": "Набор для новорождённого, 5 средств",
-   "volume": "5 предметов",
-   "desc": "Молочко, гель для подмывания, массажное масло, ланолин и крем под подгузник в одном наборе.",
-   "tags": [
-    "набор",
-    "0+"
-   ],
-   "img": "https://basket-19.wbbasket.ru/vol3132/part313264/313264170/images/big/1.webp",
-   "rank": 5,
-   "wb": {
-    "nmID": 313264170,
-    "cabinet": "beauty"
-   }
-  },
-  {
-   "id": "baby-body-milk",
-   "line": "mama",
-   "name": "Детское молочко для тела",
-   "volume": "150 мл",
-   "desc": "Детское молочко для тела с лецитином, маслом оливы и экстрактами череды и ромашки.",
-   "tags": [
-    "0+"
-   ],
-   "img": "https://basket-09.wbbasket.ru/vol1193/part119384/119384540/images/big/1.webp",
-   "rank": 6,
-   "wb": {
-    "nmID": 119384540,
-    "cabinet": "pixeltap"
-   }
-  },
-  {
    "id": "carboxy-anti-age-set",
    "line": "carboxy",
    "name": "Карбокситерапия для лица, антивозрастной набор в три шага",
@@ -535,15 +425,11 @@
    "id": "enzyme-powder",
    "line": "face",
    "name": "Энзимная пудра для умывания",
-   "volume": "70 г / 60 г",
-   "desc": "Энзимная пудра для умывания лица с каолином и папаином; с водой превращается в пену. На Wildberries — банка 70 г, на Ozon — 60 г.",
+   "volume": "60 г",
+   "desc": "Энзимная пудра для умывания лица с каолином и папаином; с водой превращается в пену.",
    "tags": [],
-   "img": "https://basket-12.wbbasket.ru/vol1720/part172000/172000924/images/big/1.webp",
+   "img": "https://basket-42.wbbasket.ru/vol10884/part1088432/1088432742/images/big/1.webp",
    "rank": 4,
-   "wb": {
-    "nmID": 172000924,
-    "cabinet": "beauty"
-   },
    "ozon": {
     "sku": 3882016367,
     "cabinet": "oz-pixeltap"
@@ -675,20 +561,6 @@
    "ozon": {
     "sku": 1842731935,
     "cabinet": "oz-beauty"
-   }
-  },
-  {
-   "id": "hydrophilic-oil",
-   "line": "face",
-   "name": "Гидрофильное масло для снятия макияжа",
-   "volume": "100 мл",
-   "desc": "Гидрофильное масло для снятия макияжа, в том числе водостойкого, с маслами макадамии, виноградной косточки и рисовых отрубей.",
-   "tags": [],
-   "img": "https://basket-17.wbbasket.ru/vol2623/part262380/262380196/images/big/1.webp",
-   "rank": 12,
-   "wb": {
-    "nmID": 262380196,
-    "cabinet": "pixeltap"
    }
   },
   {
@@ -883,48 +755,6 @@
    "ozon": {
     "sku": 3641908892,
     "cabinet": "oz-beauty"
-   }
-  },
-  {
-   "id": "leave-in-hair-oil",
-   "line": "hair",
-   "name": "Несмываемое масло для волос",
-   "volume": "100 мл",
-   "desc": "Несмываемое масло для кончиков волос с маслами инка-инчи, жожоба и виноградной косточки.",
-   "tags": [],
-   "img": "https://basket-21.wbbasket.ru/vol3511/part351172/351172899/images/big/1.webp",
-   "rank": 7,
-   "wb": {
-    "nmID": 351172899,
-    "cabinet": "pixeltap"
-   }
-  },
-  {
-   "id": "hair-spray-17in1",
-   "line": "hair",
-   "name": "Несмываемый спрей для волос 17 в 1",
-   "volume": "250 мл",
-   "desc": "Несмываемый спрей с протеинами и пантенолом: защита при укладке феном и лёгкое расчёсывание.",
-   "tags": [],
-   "img": "https://basket-06.wbbasket.ru/vol1033/part103388/103388145/images/big/1.webp",
-   "rank": 8,
-   "wb": {
-    "nmID": 103388145,
-    "cabinet": "pixeltap"
-   }
-  },
-  {
-   "id": "scalp-acid-peel",
-   "line": "hair",
-   "name": "Кислотный пилинг для кожи головы",
-   "volume": "100 мл",
-   "desc": "Пилинг-скатка для кожи головы с молочной и яблочной кислотами и ментолом.",
-   "tags": [],
-   "img": "https://basket-13.wbbasket.ru/vol2037/part203739/203739601/images/big/1.webp",
-   "rank": 9,
-   "wb": {
-    "nmID": 203739601,
-    "cabinet": "beauty"
    }
   },
   {

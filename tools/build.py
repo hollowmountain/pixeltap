@@ -53,7 +53,7 @@ METRIKA = CONF.get("metrika_id") or 0
 PAGES = {
     # шаблон: (адрес, заголовок, описание, og-заголовок)
     "index.html": ("/", "PixelTap — одна марка на всю ванную · официальный сайт",
-                   "Официальный сайт PixelTap: ланолиновые кремы для мам, детская серия, карбокситерапия, уход за лицом, телом, волосами и бровями. Купить в магазинах марки на Ozon и Wildberries.",
+                   "Официальный сайт PixelTap: ланолиновые кремы для мам, карбокситерапия, уход за лицом, телом, волосами и бровями. Купить в магазинах марки на Ozon и Wildberries.",
                    "PixelTap — одна марка на всю ванную"),
     "lanolin/index.html": ("/lanolin/", "Ланолиновый крем PixelTap — 100% ланолин для мам · официальный сайт",
                            "Ланолиновые кремы PixelTap: 100% очищенный ланолин для ухода за сосками в период кормления, губами и сухой кожей. Тубы 15 и 50 г, баночки 15, 25 и 50 г. Купить на Ozon и Wildberries.",
@@ -258,7 +258,7 @@ def hero_picture():
     mid = wide["w"][1]
     rw, rh = wide["ratio"]
     parts.append(f'<img src="/img/hero-wide-{mid}.webp?v={file_hash(f"img/hero-wide-{mid}.webp")}" width="{mid}" height="{round(mid * rh / rw)}" '
-                 f'alt="Средства PixelTap на розовом граните в утреннем тумане: ланолиновый крем, набор для карбокситерапии и детский крем" '
+                 f'alt="Средства PixelTap на розовом граните в утреннем тумане: ланолиновый крем в баночке и тубе и набор для карбокситерапии" '
                  f'loading="eager" fetchpriority="high" decoding="async">')
     parts.append("</picture>")
     return "".join(parts)
@@ -344,8 +344,19 @@ def tiles():
             f'<a class="tile rise" href="{href}" data-line-link="{l["id"]}">'
             f'<span class="tile-media">{pic}</span>'
             f'<span class="tile-body"><span class="tile-title">{etypo(l["title"])}</span>'
-            f'<span class="tile-meta"><span>{etypo(note)}{" · " if note else ""}{n}{NBSP}{noun_for("products", n)}</span>'
+            f'<span class="tile-meta"><span>{etypo(note)}{NBSP + "· " if note else ""}{n}{NBSP}{noun_for("products", n)}</span>'
             f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>')
+    # Неполный ряд добиваем плиткой «Весь каталог»: сетка на компьютере
+    # в 4 колонки, на телефоне в 2 — дыра в конце читается как ошибка.
+    # Одна плитка ровно закрывает оба ряда, только когда линеек 4k+3.
+    if len(out) % 4 == 3:
+        out.append(
+            f'<a class="tile tile-all rise" href="/?line=all#catalog" data-reset-search>'
+            f'<span class="tile-body"><span class="tile-title">Весь каталог</span>'
+            f'<span class="tile-meta"><span>{len(PRODUCTS)}{NBSP}{noun_for("products", len(PRODUCTS))} марки</span>'
+            f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>')
+    if len(out) % 4:
+        warn(f"плиток линеек {len(out)}: последний ряд сетки неполный")
     return "\n".join(out)
 
 

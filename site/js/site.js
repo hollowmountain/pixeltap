@@ -155,6 +155,8 @@
       const u = new URL(a.href, location.href);
       if (u.pathname !== location.pathname) return;
       e.preventDefault();
+      // «Весь каталог» — это весь каталог: введённый поиск тоже сбрасываем.
+      if (q && a.hasAttribute('data-reset-search')) q.value = '';
       setLine(u.searchParams.get('line') || 'all', { reveal: false });
       const target = doc.getElementById('catalog');
       if (target) target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
