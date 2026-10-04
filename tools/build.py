@@ -339,24 +339,19 @@ def tiles():
             continue
         href = "/lanolin/" if l["id"] == "lanolin" else f"/?line={l['id']}#catalog"
         note = CONF.get("line_notes", {}).get(l["id"], "")
-        pic = picture(f"tile-{l['id']}", "(max-width: 1000px) 50vw, (max-width: 1320px) 25vw, 300px", "", "lazy") if f"tile-{l['id']}" in MANIFEST else ""
+        # Подпись линейки — для диктора: на маленькой плитке видны название и число
+        note_html = f'<span class="sr-only">{etypo(note)}{NBSP}· </span>' if note else ""
+        pic = picture(f"tile-{l['id']}", "(max-width: 760px) 50vw, (max-width: 1099px) 33vw, 220px", "", "lazy") if f"tile-{l['id']}" in MANIFEST else ""
         out.append(
             f'<a class="tile rise" href="{href}" data-line-link="{l["id"]}">'
             f'<span class="tile-media">{pic}</span>'
             f'<span class="tile-body"><span class="tile-title">{etypo(l["title"])}</span>'
-            f'<span class="tile-meta"><span>{etypo(note)}{NBSP + "· " if note else ""}{n}{NBSP}{noun_for("products", n)}</span>'
+            f'<span class="tile-meta"><span>{note_html}{n}{NBSP}{noun_for("products", n)}</span>'
             f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>')
-    # Неполный ряд добиваем плиткой «Весь каталог»: сетка на компьютере
-    # в 4 колонки, на телефоне в 2 — дыра в конце читается как ошибка.
-    # Одна плитка ровно закрывает оба ряда, только когда линеек 4k+3.
-    if len(out) % 4 == 3:
-        out.append(
-            f'<a class="tile tile-all rise" href="/?line=all#catalog" data-reset-search>'
-            f'<span class="tile-body"><span class="tile-title">Весь каталог</span>'
-            f'<span class="tile-meta"><span>{len(PRODUCTS)}{NBSP}{noun_for("products", len(PRODUCTS))} марки</span>'
-            f'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>')
-    if len(out) % 4:
-        warn(f"плиток линеек {len(out)}: последний ряд сетки неполный")
+    # На компьютере плитки идут одним рядом (сколько бы их ни было), на
+    # планшете по 3, на телефоне по 2 — там неполный ряд виден как дыра.
+    if len(out) % 6:
+        warn(f"плиток линеек {len(out)}: на планшете или телефоне последний ряд неполный")
     return "\n".join(out)
 
 

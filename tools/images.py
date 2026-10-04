@@ -47,7 +47,6 @@ SCENES = {
     "tile-brows":     [480, 800, 1200],
     "tile-hair":      [480, 800, 1200],
     "tile-body":      [480, 800, 1200],
-    "tile-nails":     [480, 800, 1200],
     "lanolin-origin": [800, 1200, 1800],
     "lanolin-hero":   [640, 960, 1400],
     "maternity":      [800, 1200, 1800],

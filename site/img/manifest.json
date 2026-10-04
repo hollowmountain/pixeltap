@@ -323,18 +323,6 @@
    600
   ]
  },
- "p/curl-mousse": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "curl-mousse-c92e164e",
-  "w": [
-   300,
-   600
-  ]
- },
  "p/curl-texture-spray": {
   "dir": "img/p",
   "ratio": [
@@ -342,18 +330,6 @@
    4
   ],
   "stem": "curl-texture-spray-bd5e89d9",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/cuticle-remover": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "cuticle-remover-55e3a7d6",
   "w": [
    300,
    600
@@ -551,18 +527,6 @@
    600
   ]
  },
- "p/nail-serum": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "nail-serum-90f1893e",
-  "w": [
-   300,
-   600
-  ]
- },
  "p/peptide-serum-50": {
   "dir": "img/p",
   "ratio": [
@@ -582,30 +546,6 @@
    4
   ],
   "stem": "red-acid-peel-97627d8a",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/red-pepper-oil": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "red-pepper-oil-de9e4afd",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/repair-shampoo": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "repair-shampoo-19e28a90",
   "w": [
    300,
    600
@@ -647,18 +587,6 @@
    600
   ]
  },
- "p/scalp-enzyme-peel": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "scalp-enzyme-peel-9590cf91",
-  "w": [
-   300,
-   600
-  ]
- },
  "p/serum-duo-set": {
   "dir": "img/p",
   "ratio": [
@@ -666,18 +594,6 @@
    4
   ],
   "stem": "serum-duo-set-ea8665c6",
-  "w": [
-   300,
-   600
-  ]
- },
- "p/shampoo-balm-set": {
-  "dir": "img/p",
-  "ratio": [
-   3,
-   4
-  ],
-  "stem": "shampoo-balm-set-bb8c57b2",
   "w": [
    300,
    600
@@ -794,28 +710,15 @@
  "tile-hair": {
   "dir": "img",
   "ratio": [
-   1856,
-   2304
+   896,
+   1120
   ],
   "w": [
    480,
-   800,
-   1200
+   800
   ]
  },
  "tile-lanolin": {
-  "dir": "img",
-  "ratio": [
-   1856,
-   2304
-  ],
-  "w": [
-   480,
-   800,
-   1200
-  ]
- },
- "tile-nails": {
   "dir": "img",
   "ratio": [
    1856,

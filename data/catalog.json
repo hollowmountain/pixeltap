@@ -24,10 +24,6 @@
   {
    "id": "body",
    "title": "Тело"
-  },
-  {
-   "id": "nails",
-   "title": "Ногти"
   }
  ],
  "products": [
@@ -656,40 +652,6 @@
    }
   },
   {
-   "id": "curl-mousse",
-   "line": "hair",
-   "name": "Мусс для укладки кудрявых волос",
-   "volume": "150 мл",
-   "desc": "Мусс-пенка для укладки кудрявых волос с аргановым маслом; помогает держать форму локонов.",
-   "tags": [],
-   "img": "https://basket-25.wbbasket.ru/vol4438/part443858/443858662/images/big/1.webp",
-   "rank": 1,
-   "wb": {
-    "nmID": 443858662,
-    "cabinet": "pixeltap"
-   },
-   "ozon": {
-    "sku": 2228060893,
-    "cabinet": "oz-beauty"
-   }
-  },
-  {
-   "id": "shampoo-balm-set",
-   "line": "hair",
-   "name": "Набор для волос: шампунь и бальзам",
-   "volume": "2 × 250 мл",
-   "desc": "Шампунь и бальзам по 250 мл с маслами кедра, макадамии, виноградной косточки и усьмы.",
-   "tags": [
-    "набор"
-   ],
-   "img": "https://basket-13.wbbasket.ru/vol2028/part202895/202895707/images/big/1.webp",
-   "rank": 2,
-   "wb": {
-    "nmID": 202895707,
-    "cabinet": "beauty"
-   }
-  },
-  {
    "id": "curl-texture-spray",
    "line": "hair",
    "name": "Текстурирующий спрей для кудрявых волос",
@@ -705,56 +667,6 @@
    "ozon": {
     "sku": 2229020872,
     "cabinet": "oz-pixeltap"
-   }
-  },
-  {
-   "id": "repair-shampoo",
-   "line": "hair",
-   "name": "Восстанавливающий шампунь для волос",
-   "volume": "250 мл",
-   "desc": "Шампунь для волос с комплексом масел в тубе 250 мл.",
-   "tags": [],
-   "img": "https://basket-41.wbbasket.ru/vol10224/part1022402/1022402402/images/big/1.webp",
-   "rank": 4,
-   "ozon": {
-    "sku": 2948425800,
-    "cabinet": "oz-pixeltap"
-   }
-  },
-  {
-   "id": "scalp-enzyme-peel",
-   "line": "hair",
-   "name": "Энзимный пилинг для кожи головы",
-   "volume": "150 мл",
-   "desc": "Энзимный пилинг-скатка для кожи головы с бромелайном, молочной кислотой, ментолом и экстрактом розмарина.",
-   "tags": [],
-   "img": "https://basket-13.wbbasket.ru/vol2037/part203739/203739600/images/big/1.webp",
-   "rank": 5,
-   "wb": {
-    "nmID": 203739600,
-    "cabinet": "beauty"
-   },
-   "ozon": {
-    "sku": 3595472187,
-    "cabinet": "oz-pixeltap"
-   }
-  },
-  {
-   "id": "red-pepper-oil",
-   "line": "hair",
-   "name": "Масло с красным перцем для кожи головы и бороды",
-   "volume": "100 мл",
-   "desc": "Масло для кожи головы и бороды с экстрактом красного перца, вазелиновым и миндальным маслами, маслом виноградной косточки и эфирными маслами апельсина и грейпфрута.",
-   "tags": [],
-   "img": "https://basket-39.wbbasket.ru/vol8908/part890863/890863679/images/big/1.webp",
-   "rank": 6,
-   "wb": {
-    "nmID": 890863679,
-    "cabinet": "pixeltap"
-   },
-   "ozon": {
-    "sku": 3641908892,
-    "cabinet": "oz-beauty"
    }
   },
   {
@@ -864,38 +776,6 @@
    },
    "ozon": {
     "sku": 2657976262,
-    "cabinet": "oz-pixeltap"
-   }
-  },
-  {
-   "id": "cuticle-remover",
-   "line": "nails",
-   "name": "Средство для удаления кутикулы",
-   "volume": "30 мл",
-   "desc": "Гелевое средство для размягчения и удаления кутикулы при маникюре.",
-   "tags": [],
-   "img": "https://basket-14.wbbasket.ru/vol2127/part212785/212785521/images/big/1.webp",
-   "rank": 1,
-   "ozon": {
-    "sku": 1451229219,
-    "cabinet": "oz-pixeltap"
-   }
-  },
-  {
-   "id": "nail-serum",
-   "line": "nails",
-   "name": "Сыворотка для ногтей и кутикулы с коллагеном",
-   "volume": "15 мл",
-   "desc": "Сыворотка для ногтей и кутикулы с коллагеном и маслом чайного дерева, флакон с пипеткой.",
-   "tags": [],
-   "img": "https://basket-20.wbbasket.ru/vol3484/part348432/348432839/images/big/1.webp",
-   "rank": 2,
-   "wb": {
-    "nmID": 348432839,
-    "cabinet": "pixeltap"
-   },
-   "ozon": {
-    "sku": 3185111147,
     "cabinet": "oz-pixeltap"
    }
   }
