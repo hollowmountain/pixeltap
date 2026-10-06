@@ -44,7 +44,9 @@ for p in lanolin/ nope-$$; do
 done
 
 echo "== сертификат"
-echo | openssl s_client -connect "$HOST:443" -servername "$HOST" 2>/dev/null | openssl x509 -noout -ext subjectAltName 2>/dev/null | grep -q "$HOST" \
+# -text, а не -ext subjectAltName: на маке openssl — это LibreSSL, ключа -ext
+# он не знает, и проверка проваливалась на верном сертификате (06.10.2026).
+echo | openssl s_client -connect "$HOST:443" -servername "$HOST" 2>/dev/null | openssl x509 -noout -text 2>/dev/null | grep -q "DNS:$HOST" \
   && pass "сертификат на $HOST" || fail "сертификат не на $HOST"
 
 echo

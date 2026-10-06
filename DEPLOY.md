@@ -43,6 +43,19 @@ PT_SSH=логин@хост PT_PATH=/home/<буква>/<логин>/pixeltapi.ru/
 и откажется работать, если путь не похож на папку `pixeltapi…/public_html`
 (rsync с `--delete` при ошибке в пути снёс бы соседний сайт).
 
+**Как сделано на самом деле (первый запуск 06.10.2026).** SSH в панели
+Timeweb включить не удалось — выдаёт ошибку. Выкладка через файловый
+менеджер панели:
+
+```bash
+python3 tools/build.py --release && (cd dist && rm -f ~/Desktop/pixeltapi-site.zip && zip -q -r -X ~/Desktop/pixeltapi-site.zip . -x '.DS_Store')
+```
+
+Дальше в панели: «Файловый менеджер» → `pixeltapi.ru/public_html` →
+удалить старое → загрузить архив → «Распаковать» сюда же → сам архив
+удалить, иначе его можно скачать с сайта. Проверить, что `.htaccess` на
+месте (он скрытый), и прогнать `tools/check-live.sh`.
+
 Без SSH — любым FTP-клиентом залить **содержимое `dist/`** (включая
 скрытые `.htaccess` и `.well-known/`) в `pixeltapi.ru/public_html`.
 Папку проекта целиком не заливать никогда: на Timeweb nginx отдаёт
